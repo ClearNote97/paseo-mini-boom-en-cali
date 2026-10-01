@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+
+# sandbox/: la carpeta y su README viajan; el contenido (experimentos) no se versiona
+sandbox/*
+!sandbox/README.md
