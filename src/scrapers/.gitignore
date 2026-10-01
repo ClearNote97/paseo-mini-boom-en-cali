@@ -1,0 +1,4 @@
+# Artefactos de depuración de los scrapers (no se versionan)
+*.png
+*.txt
+__pycache__/
