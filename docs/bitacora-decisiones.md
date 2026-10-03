@@ -14,6 +14,7 @@
 | [D-001](#d-001--alcance-método-y-marco-de-puntuación-de-la-logística-del-viaje) | Alcance, método y marco de puntuación de la logística (transporte + estadía) | 2026-09-28 | Aceptada |
 | [D-002](#d-002--recomendación-final-y-entregables) | Recomendación final (estadía + transporte) y paquete de 4 entregables | 2026-09-29 | Aceptada |
 | [D-003](#d-003--escenarios-de-movilidad-y-análisis-de-horarios) | Cuatro escenarios de movilidad + análisis de horarios (el 4.º día) | 2026-09-30 | Aceptada |
+| [D-004](#d-004--planeación-v2-cambio-de-horario-de-ida-llegada-de-noche) | Planeación v2: cambio de horario de ida (llegada de noche) → movilidad reajustada | 2026-10-01 | Aceptada |
 
 ---
 
@@ -70,6 +71,19 @@
 - **Revisión honesta:** el transporte real (~$126k–236k pp según escenario) es más alto que el ~$155k pp optimista de [D-002]. Los totales de los paquetes se actualizaron en los 4 entregables (v4).
 - **Consecuencias:** el equilibrio recomendado (Viajero + S3) queda en ~$425k pp (flex); S4 lo baja a ~$378k (meta) y S1 lo sube a ~$488k (excede techo). Pendiente: confirmación por WhatsApp de entrega en CLO y tarifa del 4.º día. Se corrigió un bug de maquetación en el PDF (celdas de tabla ahora envuelven texto con Paragraph).
 - **Actualización v5 (2026-09-30):** confirmado que la entrega en el aeropuerto SÍ está disponible en agencias locales (Farallones tiene oficina en el aeropuerto; WayCarCali hace domicilio gratis al aeropuerto para alquileres de 3+ días) — se elimina el "sujeto a confirmar" sobre el punto de recogida. La recomendación de movilidad se replanteó en lenguaje llano (sin siglas S1–S4 ni "CLO") a "carro propio todo el viaje, recogido en el aeropuerto" (~$150k pp; total Viajero+carro ≈ $402k). Al informe `.md` se le agregó **índice** y la sección de **metodología** (se habían perdido en v4). Respuesta directa a la pregunta del usuario: el carro se recoge **en el aeropuerto**, no en la ciudad.
+
+---
+
+## D-004 — Planeación v2: cambio de horario de ida (llegada de noche)
+
+- **Fecha:** 2026-10-01
+- **Estado:** Aceptada (reajusta la movilidad de [D-002] y [D-003]; la estadía no cambia)
+- **Contexto:** Cambió el vuelo de ida: ahora **sale 6:00 pm y llega 8:00 pm del 30 oct** (antes, media mañana). El regreso sigue igual (vuelo 9:00 pm del 2). El usuario pidió reformular solo movilidad y planear la v2.
+- **Decisión:** Movilidad v2. **Recomendado: carro propio recogido en el aeropuerto esa misma noche** (el usuario eligió "varias salidas / libertad total" + "recoger de noche en el aeropuerto"), ~$180k pp → total Viajero + carro ≈ **$432k pp (flex)**. Alternativas: taxi oficial la 1ª noche + carro local el 31 (~$150k pp, evita manejar de noche y es más barato), o sin carro propio (~$125k pp, entra en meta). Palanca: si una agencia local confirma entrega nocturna en el aeropuerto, el carro propio baja a ~$140k pp.
+- **Datos duros (horarios nocturnos):** el 30 oct es viernes; en el aeropuerto **Alamo y Localiza abren hasta las 10 pm** (L–V) → recogida a las ~9 pm factible; Avis/Budget cierran 5 pm. Recogida fuera de horario disponible reservando con 24 h. Taxis oficiales 24/7 (~$70k por carro, distintivo amarillo).
+- **Impacto de costo:** la llegada de noche mete el viaje en **3 días de alquiler limpios** (recoger ~9 pm del 30, devolver ~7 pm del 2, bajo 72 h) — un día menos que antes; pero recoger de noche obliga a los mostradores que abren tarde (más caros que las locales), de ahí la palanca.
+- **Pendiente:** WhatsApp a Farallones/WayCarCali (¿entregan en el aeropuerto hacia las 9 pm?) y reservar recogida fuera de horario en Alamo/Localiza como respaldo si el vuelo se retrasa.
+- **Consecuencias:** 4 entregables regenerados a v2 desde la fuente única; estadía intacta; la recomendación global pasa de ~$402k (v1) a ~$432k pp (mostrador nocturno), con la palanca local para volver a ~$400k.
 
 ---
 
