@@ -1,7 +1,7 @@
 [project]
-name = "cali-2026"
+name = "paseo-mini-boom-en-cali"
 version = "0.1.0"
-description = "Add your description here"
+description = "Mini-Boom en Cali — planeación de un viaje grupal resuelta como un mini-proyecto de datos: scraping, scoring transparente y generación automática de documentos (informe, PDF, Excel y presentación)."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [

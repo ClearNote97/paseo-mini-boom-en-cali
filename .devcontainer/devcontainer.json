@@ -1,5 +1,5 @@
 {
-  "name": "clearnote-py-da",
+  "name": "paseo-mini-boom-en-cali",
   // 🐳 Imagen base de Dev Containers (incluye VS Code + Python)
   "build": {
     "dockerfile": "Dockerfile",

@@ -1,187 +1,155 @@
-# 🐍 ClearNote Py DA — Plantilla Dev Container para análisis de datos en Python
+# 🌴 Mini-Boom en Cali
 
-Plantilla **reproducible, ligera y portable** para proyectos de análisis de datos en Python sobre
-**VS Code + Dev Containers + Docker + `uv`**. El objetivo es trabajar en un entorno **aislado y
-consistente**, sin instalar el toolchain del proyecto en tu máquina anfitriona.
+> Planear un viaje grupal, resuelto como un **mini-proyecto de datos**.
+> Lo valioso de este repo **no es el destino: es el método** — cómo se abordó un problema real,
+> ambiguo y con plata de por medio, de forma rigurosa, honesta y reproducible, en colaboración
+> con un agente de IA.
 
-> **¿Buscas cómo trabajamos día a día (la dinámica agente ⇄ tú)?** Eso vive en **[`README_AGENTS.md`](./README_AGENTS.md)**.
-> Este archivo es el *qué es y cómo se instala*; ese otro es el *cómo colaboramos*.
+Siete personas, un fin de semana en Cali, presupuesto ajustado y la seguridad como regla de oro.
+En vez de resolverlo "a ojo" en un grupo de WhatsApp, se abordó como se aborda un problema de datos:
+**definir la vara → recolectar datos reales → puntuar con transparencia → consolidar → decidir**, dejando
+el razonamiento trazado en una bitácora de decisiones.
 
----
-
-## ✅ Requisitos previos
-
-- **Docker** en ejecución (en Windows, vía **WSL2**).
-- **Visual Studio Code** con la extensión **Dev Containers** (`ms-vscode-remote.remote-containers`).
-- **Git**.
-
-No necesitas Python ni `uv` instalados en el host: viven dentro del contenedor.
+El resultado son cuatro documentos (informe, resumen ejecutivo, hoja de cálculo y presentación) — pero
+lo que se busca *evidenciar* es el **proceso de pensamiento** detrás de ellos.
 
 ---
 
-## 🚀 Instalación y uso
+## 🧩 El problema
 
-### 1. Clona el repositorio
-
-**Por HTTPS:**
-
-```bash
-git clone https://github.com/ClearNote97/ClearNote_Py_DA.git
-cd ClearNote_Py_DA
-```
-
-**Por SSH:**
-
-```bash
-git clone git@github.com:ClearNote97/ClearNote_Py_DA.git
-cd ClearNote_Py_DA
-```
-
-### 2. Elimina el historial de la plantilla
-
-Esto es una **plantilla, no un proyecto en sí**: soltar el historial git que trae es **obligatorio**.
-
-```bash
-rm -rf .git
-```
-
-### 3. Renombra la carpeta
-
-Ponle el nombre de tu proyecto (reemplaza `nuevo_nombre`):
-
-```bash
-cd ..
-mv ClearNote_Py_DA nuevo_nombre
-cd nuevo_nombre
-```
-
-### 4. Inicializa tu propio repositorio *(opcional)*
-
-```bash
-git init
-git add .
-git commit -m "Proyecto inicial basado en la plantilla ClearNote Py DA"
-```
-
-Y, si quieres conectarlo a un remoto:
-
-```bash
-git remote add origin https://github.com/tu_usuario/tu_repositorio.git
-git push -u origin main
-```
-
-### 5. Abre en el contenedor
-
-En VS Code: **Ctrl+Shift+P → Reopen in Container**. Espera a que termine el `postCreateCommand`
-(prepara `.venv` e instala/sincroniza dependencias con `uv`). **No corras `pip install` a mano.**
+- **Grupo:** 7 personas (mixto, comparten cuartos).
+- **Fechas:** 30 oct – 2 nov 2026 (viernes a lunes, 3 noches). Ida 6:00 pm desde Cartagena, **llega 8:00 pm**; regreso en vuelo 9:00 pm del 2.
+- **Presupuesto:** $300–400k COP por persona (transporte + estadía), con flex hasta $480k si la calidad lo amerita.
+- **Prioridad innegociable:** la seguridad. Después: piscina, aire, cocina, rumba cerca y ambiente social.
+- **Dos decisiones a resolver:** dónde dormir y cómo movilizarse dentro de la ciudad.
 
 ---
 
-## ⚙️ Especificaciones técnicas
+## 🧠 Cómo se abordó (lo valioso)
 
-### Contenedor
+El corazón del proyecto es el *método*, no la respuesta:
 
-| | |
+1. **Criterio antes que búsqueda.** Primero se fijaron los pesos de cada criterio (seguridad 30%, amenidades,
+   precio, cercanía, parqueadero, ambiente) — *antes* de mirar un solo precio, para no sesgar la decisión
+   por la primera opción atractiva.
+2. **Precios reales, no de folleto.** Un navegador automatizado (Playwright) recorrió Hostelworld con las
+   fechas exactas y 7 huéspedes; el transporte se cotizó contra Kayak y agencias locales de Cali.
+3. **Puntaje propio y auditable.** Se construyó un puntaje 0–100 (nota 1–5 por criterio × su peso), **distinto**
+   del rating externo de las plataformas, con la fórmula a la vista.
+4. **Consolidación por trade-off**, no solo por precio: arquetipos de estadía y escenarios de movilidad.
+5. **Honestidad sobre supuestos y límites.** Se marca qué es dato real, qué es estimado y qué falta confirmar
+   (p. ej. precio por persona vs. por habitación; tarifas locales de alquiler corto).
+6. **Una sola fuente de datos** (`src/generar_entregables.py`) genera los 4 documentos en coherencia: cambiar
+   un número los actualiza a todos.
+7. **Bitácora de decisiones** (`docs/bitacora-decisiones.md`, `D-001`…`D-004`) como **evidencia del razonamiento**:
+   qué se decidió, por qué, qué se descartó y qué cambió cuando cambiaron las condiciones (p. ej. el vuelo
+   pasó a llegar de noche → se reajustó solo la movilidad).
+
+> **Iteración humano–IA.** Buena parte del valor está en el ida y vuelta: el humano define el problema, pone
+> la vara, corrige supuestos (cuando el agente calculó mal el precio de la Captiva, el humano lo cachó y se
+> corrigió) y decide; el agente ejecuta la recolección, el cálculo, la maquetación y deja todo trazado.
+
+---
+
+## 📦 Entregables
+
+Generados en [`output/`](./output/) — los cuatro se referencian entre sí y comparten estándar visual
+(paleta cálida pastel, tarjetas redondeadas, banderas Cartagena → Cali):
+
+| Archivo | Qué es |
 |---|---|
-| Imagen base | `python:3.14.5-slim-bookworm` |
-| Paquetes de sistema | `build-essential`, `ca-certificates` |
-| Gestor de dependencias | `uv` `0.11.13` (copiado desde `ghcr.io/astral-sh/uv`) |
-| Usuario | `root` |
-| Workspace | `/workspaces/<nombre-de-la-carpeta>` |
-| Entorno virtual | `.venv/` (intérprete: `${workspaceFolder}/.venv/bin/python`) |
-
-### Gestión de dependencias con `uv`
-
-`uv` reemplaza a `pip` como herramienta de trabajo (más rápido, lockfiles reproducibles). Al crear el
-contenedor, el `postCreateCommand` detecta el estado del proyecto y actúa solo:
-
-| Estado del repo | Qué ejecuta |
-|---|---|
-| Hay `pyproject.toml` **y** `uv.lock` | `uv sync --locked` (entorno idéntico y reproducible) |
-| Hay `pyproject.toml` **sin** `uv.lock` | `uv lock && uv sync` |
-| Solo `requirements.txt` | `uv init --no-package --no-workspace .` → borra `main.py` → `uv add -r requirements.txt` (genera `pyproject.toml` + `uv.lock`) |
-| No hay ninguno | Falla con mensaje de error |
-
-> **Transición `requirements.txt` → `pyproject.toml` + `uv.lock`:** la plantilla nace con
-> `requirements.txt` (Estado 0) y en el primer arranque consolida el lockfile reproducible (Estado N).
-> **Cuando `uv.lock` se genere o cambie, se versiona** — es la garantía de reproducibilidad.
-
-### Editor (VS Code)
-
-- **Formateo y linting con Ruff**: formateo al guardar + `fixAll` y `organizeImports` en cada guardado.
-- **Type checking**: Pylance en modo `basic`, con *inlay hints* de tipos de variables y retornos.
-- **Extensiones preinstaladas**: Python, Pylance, Ruff, Jupyter, Even Better TOML, GitHub Copilot,
-  Path Intellisense, Material Icon Theme.
+| `Mini-Boom-en-Cali_Informe-completo.md` | Informe completo: metodología, criterios, datos, análisis, recomendación y límites. |
+| `Mini-Boom-en-Cali_Resumen-ejecutivo.pdf` | Resumen ejecutivo de una mirada. |
+| `Mini-Boom-en-Cali_Resultados.xlsx` | Resultados numéricos, una hoja por tema (estadía, movilidad, vehículos, puntaje). |
+| `Mini-Boom-en-Cali_Presentacion.pptx` | Presentación visual para contarlo al grupo. |
 
 ---
 
-## 📂 Estructura del proyecto
+## 🛠️ Stack y herramientas
+
+**Entorno y lenguaje**
+- **Python 3.14** gestionado con **`uv`** (lockfile reproducible).
+- **Dev Container + Docker** (VS Code) — toolchain aislado, sin instalar nada en el host.
+- **Plantilla base:** [**ClearNote Py DA**](https://github.com/ClearNote97/ClearNote_Py_DA) — plantilla propia de
+  dev container para análisis de datos en Python (ver créditos).
+
+**Recolección de datos (web scraping)**
+- **Playwright** (Chromium) — scraping de sitios que cargan con JavaScript (Hostelworld, Kayak).
+- `urllib` — descarga de activos (banderas desde Wikimedia Commons).
+
+**Generación de documentos**
+- **openpyxl** → Excel · **python-pptx** → PowerPoint · **reportlab** → PDF · **Pillow** → imágenes.
+- **PyMuPDF** + **LibreOffice** (headless) — para *renderizar y verificar visualmente* cada documento antes de entregarlo.
+- **pandas / numpy / pyarrow** — disponibles para el manejo de datos.
+
+**Fuentes de datos consultadas**
+- Hostelworld (estadía), Kayak (alquiler de vehículos), Airbnb (casa entera), sitios de agencias locales
+  (Farallones, WayCarCali), tarifas oficiales de taxi de Cali, Wikimedia Commons (banderas).
+
+**Agente de IA (par de trabajo) — incluyéndolo explícitamente**
+- Todo el análisis, el scraping y la maquetación se construyeron en colaboración con un **agente de IA**:
+  **Claude** (Anthropic), operado a través de **Claude Code**, dentro del marco personal de agentes **Helix**.
+- El rol humano fue **dirigir**: definir el problema, fijar criterios, corregir supuestos y decidir.
+  El rol del agente fue **ejecutar**: recolectar, calcular, maquetar y dejar el razonamiento trazado en la bitácora.
+
+---
+
+## ▶️ Cómo reproducirlo
+
+> Todo corre **dentro del Dev Container** (ahí viven Python, `uv` y el navegador).
+
+```bash
+# 1. Abrir el repo en VS Code → "Reopen in Container" (el postCreate corre `uv sync`)
+
+# 2. (una sola vez) instalar el navegador de Playwright
+uv run playwright install --with-deps chromium
+
+# 3. Recolectar datos (opcional — re-scrapea precios frescos)
+uv run python src/scrapers/explora_hostelworld.py
+uv run python src/scrapers/explora_kayak.py
+
+# 4. Generar los 4 documentos desde la fuente única de datos
+uv run python src/generar_entregables.py
+#    → deja todo en output/
+```
+
+Los scrapers viven en [`src/scrapers/`](./src/scrapers/) (con su propio README). Los selectores de sitios
+comerciales cambian seguido: si uno deja de extraer, se ajusta con la captura de pantalla + `playwright codegen`.
+
+---
+
+## 🗂️ Estructura
 
 ```
 .
-├── .devcontainer/      # Dockerfile + devcontainer.json (definición del entorno)
-├── data/               # datos del proyecto
-│   └── other/          # archivos de datos en formatos no-SQL (.csv, .parquet, .xlsx, …)
-├── docs/               # documentación: objetivo, bitácora de decisiones, diccionario de datos
-├── notebooks/          # exploración y prototipado (.py / .ipynb)
-├── sandbox/            # experimentos desechables — su contenido NO se versiona
-├── tests/              # verificación formal (pytest) — el gate
-├── output/             # entregable final, ya verificado
-├── src/                # código reutilizable
-│   └── utils/          # utilidades
-├── .env.example        # plantilla de variables de entorno (copiar a .env)
-├── requirements.txt    # dependencias (base para pyproject.toml + uv.lock)
-├── README.md           # este archivo (qué es y cómo se instala)
-└── README_AGENTS.md     # el contrato de trabajo (dinámica agente ⇄ tú)
+├── src/
+│   ├── generar_entregables.py   # fuente única de datos → genera los 4 documentos
+│   └── scrapers/                # recolectores (Playwright) + descarga de banderas
+├── docs/
+│   ├── bitacora-decisiones.md   # el PORQUÉ de cada decisión (D-001…D-004) — la evidencia del método
+│   └── diccionario-de-datos.md  # qué significa cada variable
+├── output/                      # los 4 entregables + assets (banderas)
+├── .devcontainer/               # definición del entorno (Dev Container + uv)
+└── README.md                    # este archivo (el caso de estudio)
 ```
 
-**Flujo de trabajo:** `sandbox/` (tanteo sucio) → `tests/` (gate que verifica) → `output/` (solo lo
-comprobado). Cada carpeta tiene su propio `README.md` explicando su rol. La dinámica completa está en
-**[`README_AGENTS.md`](./README_AGENTS.md)**.
+---
+
+## ⚠️ Nota honesta
+
+Esto es una **ayuda a la decisión**, no una reserva. Los precios son de referencia (algunos reales/scrapeados,
+otros estimados y marcados como tales) y deben confirmarse antes de reservar. El valor del repo está en *cómo
+se pensó el problema*, no en que cada cifra sea definitiva.
 
 ---
 
-## 🧹 Qué se versiona y qué no
+## 🙏 Créditos
 
-**Se versiona:** `README.md`, `README_AGENTS.md`, `.devcontainer/*`, `requirements.txt` (o
-`pyproject.toml`), `uv.lock` cuando exista, `tests/`, `output/`, los `README.md` de cada carpeta.
-
-**No se versiona:** `.venv/`, `__pycache__/`, `*.pyc`, `.env`, y el **contenido** de `sandbox/`.
-
-`.gitignore` de la plantilla:
-
-```gitignore
-.env
-__pycache__/
-*.pyc
-.venv/
-
-# sandbox/: la carpeta y su README viajan; el contenido (experimentos) no se versiona
-sandbox/*
-!sandbox/README.md
-```
-
-> El `.env` **nunca** se versiona. Usa `.env.example` como referencia y crea tu `.env` local.
-
----
-
-## 📦 Dependencias incluidas
-
-- **Análisis de datos:** `pandas`, `numpy`, `pyarrow`
-- **Excel:** `openpyxl`, `xlsxwriter`, `xlrd`, `fastexcel`
-- **Notebooks / interactivo:** `ipython`, `ipykernel`, `ipynbname`
-- **Utilidades:** `python-dateutil`, `python-dotenv`
-
----
+- **Plantilla base:** [ClearNote Py DA](https://github.com/ClearNote97/ClearNote_Py_DA) — dev container para análisis de datos en Python.
+- **Autor:** MSc. Nicolás Enrique Valencia Santiago.
+- **Par de trabajo:** agente de IA (Claude / Claude Code, en el marco Helix).
+- Plantilla enriquecida con la asistencia de [Helix](https://github.com/ftuga/helix_asisten) de [ftuga](https://github.com/ftuga).
 
 ## ⚖️ Licencia
 
-Distribuido bajo licencia [MIT](https://opensource.org/license/MIT). Puedes copiar, modificar y reutilizar libremente esta plantilla.
-
-## ✍️ Autor
-
-**MSc. Nicolás Enrique Valencia Santiago**
-
-## 🙏 Agradecimientos
-
-Plantilla enriquecida con la asistencia de [Helix — agente de IA](https://github.com/ftuga/helix_asisten) de [ftuga](https://github.com/ftuga).
+[MIT](https://opensource.org/license/MIT).
