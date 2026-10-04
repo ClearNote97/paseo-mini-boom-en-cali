@@ -82,22 +82,23 @@ Ordenados por ese puntaje propio. La última columna es para juzgar con ojos pro
 
 El grupo pidió apuntar al **noroeste/oeste de Cali, cerca de la zona de actividades**, en casa o apartamento **entero** (ningún baño se comparte). Para no fiarse del título —que engaña: varias que «parecían» del oeste estaban en el este o el sur—, **se verificó la ubicación por las coordenadas de cada ficha** y se midió la distancia a la zona de actividades (Granada / El Peñón). Se les aplicó **el mismo puntaje 0–100** que a los hostales (seguridad 30% · amenidades 20% · precio 20% · cercanía 12% · parqueadero 10% · social 8%), en un **ranking separado** (precio normalizado entre casas).
 
-> **Realidad del inventario:** casas/aptos enteros para 7, en el oeste core, disponibles y en presupuesto, hay **pocos**. Estos son los que cumplen de verdad. *La disponibilidad para la noche del 30 y las amenidades (aire/piscina) hay que confirmarlas al reservar.*
+> **Realidad del inventario:** casas/aptos enteros para 7, en el oeste core, disponibles y en presupuesto, hay **pocos**. Estos son los que cumplen de verdad. *Ojo: la disponibilidad para el rango completo (**30 oct → 2 nov**) y las amenidades (aire/piscina) hay que confirmarlas en el link de cada una — Airbnb no las expone de forma fiable al barrer.*
 
 | # | Casa / apto entero | Sector | Dist. actividades | Puntaje | Camas | Baños | Aire | ★ Rating | Por persona (3n) | Ver |
 |:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|:--:|
-| 1 | **Apartamento cerca del Estadio** ★ | Oeste | ~1.9 km | **79.2** | 5 | 2 | Sí | 4.78 | $86.407 | [link](https://www.airbnb.com/rooms/28196917) |
-| 2 | **Casa amoblada para 7 personas con garaje** | Centro-oeste | ~3.6 km | **78.4** | 5 | 2,5 | Sí | 4.97 | $90.714 | [link](https://www.airbnb.com/rooms/38526055) |
-| 3 | **Espacioso refugio de 3 dormitorios – Vistas** | Oeste (ladera) | ~2.4 km | **63.2** | 5 | 3 | Sí | 4.84 | $282.068 | [link](https://www.airbnb.com/rooms/1112396000580569933) |
+| 1 | **Agradable y Hermoso Apartamento (La Flora)** ★ | Norte (La Flora) | ~4.8 km | **72.4** | 7 | 2 | Sí | 5.0 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
+| 2 | **Casa amoblada para 7 personas con garaje** | Centro-oeste | ~3.6 km | **70.8** | 5 | 2,5 | — | 4.97 | $90.714 | [link](https://www.airbnb.com/rooms/38526055) |
+| 3 | **Casa-museo Fundación Cerón (San Antonio)** | Oeste (San Antonio) | ~0.6 km | **65.3** | 6 | 2,5 | — | 4.63 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
+| 4 | **Espacioso refugio de 3 dormitorios – Vistas** | Oeste (ladera) | ~2.4 km | **63.2** | 5 | 3 | Sí | 4.84 | $282.068 | [link](https://www.airbnb.com/rooms/1112396000580569933) |
 
-**Mejor por puntaje (Apartamento cerca del Estadio, 79.2/100, a ~1.9 km de la rumba) + carro propio local ≈ $286.407 por persona** (dentro): baños del grupo, cocina y privacidad. Igual conviene comparar contra el hostal (Viajero), que gana en ambiente social y queda en plena San Antonio.
+**Mejor por puntaje: Agradable y Hermoso Apartamento (La Flora) (72.4/100)** — gana por sus 7 camas (una por persona), aire y rating 5.0; con carro propio local ≈ $385.894 por persona (dentro). **Pero es la más lejos (~4.8 km).** Si lo que más pesa es estar *encima* de la rumba, la más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (a solo ~0.6 km, puntaje 65.3). La distancia (coordenadas) está en la tabla para que el grupo elija según qué priorice. Y siempre conviene compararlas contra el hostal (Viajero), que gana en ambiente social y queda en plena San Antonio.
 
 Cercanas pero con reparos (o las que ya se descartaron), con el porqué verificado por coordenadas:
 
-- **[Casa Bella, bohemia San Antonio](https://www.airbnb.com/rooms/49321247)** (Oeste ~1,0 km, $156.186 pp · 5 camas · 2 baños) — La MEJOR ubicada (~1 km de actividades) pero SIN disponibilidad para la noche del 30.
-- **[Apto familiar – ubicación estratégica](https://www.airbnb.com/rooms/1538036648539244464)** (Oeste ~2,1 km, $104.062 pp · 4 camas · 2 baños) — Bien ubicado, pero solo 4 camas (bajo el mínimo de 5 para los siete).
-- **[Apto tranquilo para compartir](https://www.airbnb.com/rooms/49124373)** (Oeste ~3,6 km, $246.200 pp · 4 camas · 4 baños) — 4 baños (lujo) pero solo 4 camas (<5) y algo retirado.
-- **[Casa para 8 personas](https://www.airbnb.com/rooms/880582897050465656)** (ESTE ~4,7 km, $124.151 pp · 6 camas · 2 baños) — Coordenadas → este de Cali, lejos de la zona de actividades.
+- **[Apto Granada / Chipichape (fresco)](https://www.airbnb.com/rooms/1470314362888330685)** (Noroeste ~1,8 km, $129.771 pp · 4 camas · 2,5 baños) — Muy bien ubicado (noroeste, ~1,8 km) y 2,5 baños, pero solo 4 camas (<5 para los siete).
+- **[Torre Gardes](https://www.airbnb.com/rooms/1693694879035428775)** (Noroeste ~3,0 km, $285.714 pp · 4 camas · 4 baños) — Noroeste, piscina, 4 baños y rating 5,0 — pero 4 camas (<5) y caro.
+- **[Casa Bella, bohemia San Antonio](https://www.airbnb.com/rooms/49321247)** (Oeste ~1,0 km, $156.186 pp · 5 camas · 2 baños) — Excelente ubicación (~1 km) pero SIN disponibilidad para la noche del 30.
+- **[Apartamento cerca del Estadio](https://www.airbnb.com/rooms/28196917)** (Oeste ~1,9 km, $86.407 pp · 5 camas · 2 baños) — Buena zona (~1,9 km) pero el calendario no permite la salida el 2.
 - **[Casa con piscina privada](https://www.airbnb.com/rooms/825481159079037573)** (Centro ~4,2 km, $430.608 pp · 5 camas · 2,5 baños) — Se sale del presupuesto (~$431k pp) y queda retirada.
 
 ## Movilidad: la llegada es de noche
@@ -148,7 +149,7 @@ Cada lectura combina un hostal con la movilidad recomendada (carro local (entreg
 | **Económico** | [La Chanca Hostel](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/) | **$289.850** | DENTRO |
 | **Amenidades en meta** | [Hostal Patio del Río](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/) | **$389.750** | DENTRO |
 | **El equilibrio** ★ | [Viajero Hostel & Salsa School](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/) | **$452.282** | FLEX |
-| **Casa entera** | [Apartamento cerca del Estadio](https://www.airbnb.com/rooms/28196917) | **$286.407** | DENTRO |
+| **Casa entera** | [Agradable y Hermoso Apartamento (La Flora)](https://www.airbnb.com/rooms/1192253493415245874) | **$385.894** | DENTRO |
 
 ## La recomendación
 

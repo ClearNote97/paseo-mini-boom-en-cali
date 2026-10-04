@@ -45,10 +45,13 @@ ZONAS = [
     "Granada, Cali, Valle del Cauca",
     "Santa Mónica, Cali, Valle del Cauca",
     "Versalles, Cali, Valle del Cauca",
-    "Centenario, Cali, Valle del Cauca",
     "El Peñón, Cali, Valle del Cauca",
     "Santa Teresita, Cali, Valle del Cauca",
-    "Vipasa, Cali, Valle del Cauca",
+    "Centenario, Cali, Valle del Cauca",
+    "Normandía, Cali, Valle del Cauca",
+    "La Flora, Cali, Valle del Cauca",
+    "Prados del Norte, Cali, Valle del Cauca",
+    "San Antonio, Cali, Valle del Cauca",
 ]
 HEADLESS = True           # ponlo en False la primera vez para VER el navegador
 AQUI = Path(__file__).parent

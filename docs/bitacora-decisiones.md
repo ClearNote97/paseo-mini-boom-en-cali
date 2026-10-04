@@ -118,6 +118,13 @@
   - **Nuevo ranking (3 que cumplen):** 1º *Apartamento cerca del Estadio* (oeste ~1,9 km, 5 camas, 2 baños, **79.2**), 2º *Casa 7p con garaje* (centro-oeste ~3,6 km, **78.4**), 3º *Espacioso refugio Vistas* (oeste ~2,4 km, 3 baños, **63.2**, flex). Mejor + carro local ≈ **$286.407 pp (DENTRO)**.
   - **Límite reconocido:** la **disponibilidad para la noche del 30 no se puede auto-verificar** fiable desde el scrape (el calendario por-noche no se expone) — se marca "confirmar al reservar" con el link directo. Las amenidades (aire/piscina) siguen "según el anuncio" (su detección varía entre corridas). El `corto`/distancia y las coordenadas quedan como la señal dura.
 
+- **Actualización v4 (2026-10-04) — ampliar opciones + disponibilidad del rango completo:** el usuario reportó que el Apto cerca Estadio tiene el problema inverso (no permite la **salida el 2**) y pidió **más opciones**. Se decidió:
+  - **Intento de leer el calendario** (3 noches: 30, 31, 1) desde el HTML de la ficha → **no sirve**: Airbnb carga el calendario por una llamada aparte (quedó en "?"). Confirmado: la disponibilidad hay que verificarla manualmente en el link; las notas pasaron a decir **rango 30→2** (no solo el 30).
+  - **Barrido ampliado a 10 barrios** del noroeste (+ Normandía, La Flora, Prados del Norte, San Antonio). **Realidad confirmada:** el inventario de casas/aptos enteros para 7 en Cali es finito (~24 únicos en presupuesto; se repiten entre búsquedas), la mayoría al este/sur, con <5 camas o fuera de presupuesto.
+  - **Set ampliado a 4 que cumplen** (cap 7 + camas ≥5 + noroeste/oeste + presupuesto), verificadas por coordenadas: 1º *Agradable y Hermoso Apto (La Flora)* (**7 camas**, aire, 5,0★, pero norte ~4,8 km, **72.4**), 2º *Casa 7p garaje* (~3,6 km, **70.8**), 3º *Casa-museo Fundación Cerón* (la más cerca, ~0,6 km en San Antonio, **65.3**), 4º *Refugio Vistas* (~2,4 km, **63.2**). Se explicita en el informe el trade-off puntaje-vs-distancia (la #1 es la más cómoda pero la más lejos; la más céntrica es la casa-museo).
+  - **Descartes transparentes** (con coordenadas): Apto Granada/Chipichape y Torre Gardes (noroeste pero 4 camas), Casa Bella (sin dispo el 30), Apto cerca Estadio (sin salida el 2), Casa piscina (fuera de presupuesto).
+  - **Gráfico:** eje fijado a **0–100** (`value_axis.minimum/maximum_scale`) para no exagerar diferencias cuando los puntajes están agrupados.
+
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────────

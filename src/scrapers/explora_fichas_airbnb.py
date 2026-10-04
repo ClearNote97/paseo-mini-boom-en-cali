@@ -32,16 +32,12 @@ JSON_OUT = AQUI / "airbnb_fichas.json"
 
 # Candidatas a verificar (id → etiqueta corta). Se edita por iteración.
 FICHAS = {
-    "28196917": "Apartamento cerca Estadio",
-    "1538036648539244464": "Apto familiar ubicación estratégica",
-    "1754825634045341668": "Apartamento con Aire (Santa Mónica)",
-    "1524138619210052243": "Apartamento familiar / Excelente ubicación",
-    "1465402516514594759": "Vive la experiencia – Moderno apto",
-    "961489175423000977": "Chalet el Encanto",
-    "49124373": "Apto tranquilo para compartir",
-    "1112396000580569933": "Espacioso refugio 3 dorm – Vistas",
-    "1271933838955311814": "Luxury apartamento Cali 501",
-    "880582897050465656": "Casa para 8 personas",
+    "1470314362888330685": "Apto Granada/Chipichape fresco",
+    "1192253493415245874": "Agradable y Hermoso Apto (La Flora)",
+    "1693694879035428775": "Torre Gardes",
+    "1548961086363759352": "Museo Fundación Cerón (San Antonio)",
+    "38526055": "Casa 7p garaje",
+    "1112396000580569933": "Refugio Vistas",
 }
 
 # Anclas de la "zona de actividades" del noroeste/oeste (Granada y El Peñón / Av. Sexta).
@@ -100,6 +96,32 @@ def _disponible(txt: str) -> bool | None:
     return True if tiene_total else None
 
 
+# Las 3 noches que necesitamos (checkout el 2 → última noche la del 1).
+NOCHES = ["2026-10-30", "2026-10-31", "2026-11-01"]
+
+
+def _noche_disponible(html: str, fecha: str) -> bool | None:
+    """Busca en el JSON embebido del calendario si esa noche está 'available'. None si no se halla."""
+    i = html.find(fecha)
+    while i != -1:
+        win = html[max(0, i - 160):i + 160]
+        m = re.search(r'"available"\s*:\s*(true|false)', win)
+        if m:
+            return m.group(1) == "true"
+        i = html.find(fecha, i + 1)
+    return None
+
+
+def _disponible_rango(html: str) -> bool | None:
+    """True si las 3 noches aparecen disponibles; False si alguna aparece NO disponible; None si no se pudo leer."""
+    estados = [_noche_disponible(html, f) for f in NOCHES]
+    if any(e is False for e in estados):
+        return False
+    if all(e is True for e in estados):
+        return True
+    return None
+
+
 async def _body(pagina) -> str:
     try:
         return await pagina.locator("body").inner_text()
@@ -150,7 +172,9 @@ async def ficha(contexto, room_id: str, etiqueta: str) -> dict:
     else:
         lat = lng = km = None
         sector = "?"
-    disponible = _disponible(txt_full)
+    # Disponibilidad: primero el calendario embebido (3 noches), luego la heurística de texto.
+    disponible_cal = _disponible_rango(html)
+    disponible = disponible_cal if disponible_cal is not None else _disponible(txt_full)
 
     # Rating: "4,92" o "4.92" cerca de "reseñas"/"evaluaciones", o patrón "4,9 · 123 reseñas".
     rating = None
@@ -179,13 +203,14 @@ async def ficha(contexto, room_id: str, etiqueta: str) -> dict:
         "rating": rating,
         "barrio": barrio,
         "lat": lat, "lng": lng, "sector": sector, "km_actividades": km,
-        "disponible_30": disponible,
+        "disponible_rango": disponible, "disponible_calendario": disponible_cal,
         "titulo": (await pagina.title()).split(" - Airbnb")[0],
     }
     disp_txt = {True: "SÍ", False: "NO", None: "?"}[disponible]
+    fuente = "cal" if disponible_cal is not None else "heur"
     print(f"  {datos['huespedes']}h · {datos['habitaciones']}hab · {datos['camas']}camas · {datos['banos']}baños "
           f"| aire:{datos['aire']} pisc:{datos['piscina']} parq:{datos['parqueadero']} | ★{datos['rating']} "
-          f"| {sector} ~{km}km act. | dispo30:{disp_txt}")
+          f"| {sector} ~{km}km act. | dispo(30-31-1):{disp_txt}[{fuente}]")
     await pagina.close()
     return datos
 
