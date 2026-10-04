@@ -84,24 +84,23 @@ El grupo pidió apuntar al **noroeste/oeste de Cali, cerca de la zona de activid
 
 > **Realidad del inventario:** casas/aptos enteros para 7, en el oeste core, disponibles y en presupuesto, hay **pocos**. Estos son los que cumplen de verdad. *Ojo: la disponibilidad para el rango completo (**30 oct → 2 nov**) y las amenidades (aire/piscina) hay que confirmarlas en el link de cada una — Airbnb no las expone de forma fiable al barrer.*
 
-| # | Casa / apto entero | Sector | Dist. actividades | Puntaje | Camas | Baños | Aire | ★ Rating | Por persona (3n) | Ver |
-|:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|:--:|
-| 1 | **Apto Granada / Chipichape (fresco)** | Noroeste | ~1.8 km | **77.2** | 4 | 2,5 | — | 4.75 | $129.771 | [link](https://www.airbnb.com/rooms/1470314362888330685) |
-| 2 | **Agradable y Hermoso Apartamento (La Flora)** ★ | Norte (La Flora) | ~4.8 km | **74.6** | 7 | 2 | Sí | 5.0 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
-| 3 | **Casa-museo Fundación Cerón (San Antonio)** | Oeste (San Antonio) | ~0.6 km | **67.6** | 6 | 2,5 | — | 4.63 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
-| 4 | **Torre Gardes** | Noroeste | ~3.0 km | **66.8** | 4 | 4 | — | 5.0 | $285.714 | [link](https://www.airbnb.com/rooms/1693694879035428775) |
+| # | Casa / apto entero | Sector | Dist. | Puntaje | Camas | Baños | Aire | ★ | Total (3n) | Por persona | Ver |
+|:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|--:|:--:|
+| 1 | **Vivienda entera (La Flora)** ★ | Norte (La Flora) | ~4.8 km | **80.1** | 7 | 2 | Sí | 5.0 | $1.301.262 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
+| 2 | **Casa-museo Fundación Cerón (San Antonio)** | Oeste (San Antonio) | ~0.6 km | **73.2** | 6 | 2,5 | — | 4.63 | $1.294.200 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
+| 3 | **Apartamento entero con servicios (tu hallazgo)** | Oeste | ~3.6 km | **66.8** | 4 | 4 | Sí | 4.87 | $1.723.404 | $246.200 | [link](https://www.airbnb.com/rooms/49124373) |
 
-> **Cómo leer la ★:** marca la mejor **con cama para los siete** (camas ≥5), no solo la de mayor puntaje. La #1 por puntaje, *Apto Granada / Chipichape (fresco)* (77.2), es la más barata y céntrica (~1.8 km) **pero trae 4 camas** (cap. 8 con sofá-cama) — hay que confirmar que durmamos bien los 7.
+> **Disponibilidad verificada:** las tres tienen el rango **30 oct → 2 nov libre** (se leyó el calendario real de Airbnb) y son **alojamientos enteros** (ningún baño se comparte con extraños). La ★ marca la mejor **con cama para los siete** (camas ≥5).
 
-**★ Mejor con cama para todos: Agradable y Hermoso Apartamento (La Flora)** — 7 camas (una por persona), aire y rating 5.0; con carro propio local ≈ $385.894 por persona (dentro). Su pero es la distancia (~4.8 km, al norte). Si lo que más pesa es estar *encima* de la rumba, la más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (~0.6 km, 6 camas). La distancia (coordenadas) está en la tabla para elegir según prioridad; y conviene compararlas contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.
+**★ Mejor con cama para todos: Vivienda entera (La Flora)** (80.1/100) — 7 camas (una por persona), aire y rating 5.0; total $1.301.262 → $185.894 por persona, y con carro propio local ≈ $385.894 pp (dentro). Su único pero es la distancia (~4.8 km, al norte); si lo que más pesa es estar *encima* de la rumba, la más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (~0.6 km, 6 camas). Conviene compararlas contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.
 
-Cercanas pero con reparos (o las que ya se descartaron), con el porqué verificado por coordenadas:
+**Marcadas donde van** — tipo de propiedad y disponibilidad verificados (no son casa entera, o no tienen el rango 30→2):
 
-- **[Casa amoblada para 7 personas con garaje](https://www.airbnb.com/rooms/38526055)** (Centro-oeste ~3,6 km, $90.714 pp · 5 camas · 2,5 baños) — La descartaste: poco atractiva, aunque era barata (5 camas, garaje).
-- **[Espacioso refugio de 3 dormitorios – Vistas](https://www.airbnb.com/rooms/1112396000580569933)** (Oeste ~2,4 km, $282.068 pp · 5 camas · 3 baños) — La descartaste: las noches no cuadran y es cara (~$282k pp).
-- **[Casa Bella, bohemia San Antonio](https://www.airbnb.com/rooms/49321247)** (Oeste ~1,0 km, $156.186 pp · 5 camas · 2 baños) — Excelente ubicación (~1 km) pero SIN disponibilidad para la noche del 30.
-- **[Apartamento cerca del Estadio](https://www.airbnb.com/rooms/28196917)** (Oeste ~1,9 km, $86.407 pp · 5 camas · 2 baños) — Buena zona (~1,9 km) pero el calendario no permite la salida el 2.
-- **[Casa con piscina privada](https://www.airbnb.com/rooms/825481159079037573)** (Centro ~4,2 km, $430.608 pp · 5 camas · 2,5 baños) — Se sale del presupuesto (~$431k pp) y queda retirada.
+- **[Hab. compartida en casa de huéspedes](https://www.airbnb.com/rooms/1277005393867902776)** (Oeste ~3,1 km, total $1.440.622 → $205.803 pp · 9 camas · 6 baños) — Es una HABITACIÓN COMPARTIDA con 6 baños COMPARTIDOS → va contra lo de no compartir baño con extraños.
+- **[Lofthouse 14 (apartahotel)](https://www.airbnb.com/rooms/1556929420516931269)** (Oeste ~2,0 km, total $1.489.745 → $212.820 pp) — Es un APARTAHOTEL (habitación en hotel), no una casa entera. Privado y con aire, pero formato hotel.
+- **[Habitación en hotel](https://www.airbnb.com/rooms/1727019164229496188)** (Oeste ~2,1 km, total $1.489.745 → $212.820 pp) — Es un HOTEL (habitación), no una casa entera.
+- **[Apto Granada / Chipichape](https://www.airbnb.com/rooms/1470314362888330685)** (Noroeste ~1,8 km, total $908.397 → $129.771 pp · 4 camas · 2,5 baños) — Lindo y céntrico, pero el calendario NO tiene el rango 30→2 (verificado) — y no tiene aire.
+- **[Torre Gardes](https://www.airbnb.com/rooms/1693694879035428775)** (Noroeste ~3,0 km, total $2.000.000 → $285.714 pp · 4 camas · 4 baños) — Piscina y 4 baños, pero el calendario NO tiene las fechas (verificado).
 
 ## Movilidad: la llegada es de noche
 
@@ -151,7 +150,7 @@ Cada lectura combina un hostal con la movilidad recomendada (carro local (entreg
 | **Económico** | [La Chanca Hostel](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/) | **$289.850** | DENTRO |
 | **Amenidades en meta** | [Hostal Patio del Río](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/) | **$389.750** | DENTRO |
 | **El equilibrio** ★ | [Viajero Hostel & Salsa School](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/) | **$452.282** | FLEX |
-| **Casa entera** | [Agradable y Hermoso Apartamento (La Flora)](https://www.airbnb.com/rooms/1192253493415245874) | **$385.894** | DENTRO |
+| **Casa entera** | [Vivienda entera (La Flora)](https://www.airbnb.com/rooms/1192253493415245874) | **$385.894** | DENTRO |
 
 ## La recomendación
 

@@ -130,6 +130,13 @@
   - **Normalización de precio:** se mantuvo *dentro del set* pero el set tiene 4 (no 2) justo para que la normalización no se distorsione (con 2 precios casi iguales, uno caía a 5 y otro a 1 — artefacto). Lección: el ranking relativo necesita ≥3–4 ítems para que el sub-puntaje de precio sea informativo.
   - **Inventario:** confirmado agotado para el criterio estricto — en el noroeste/oeste cerca de actividades, con 7 personas y presupuesto, las opciones con camas ≥5 son contadas; las demás (Casa Bella, Apto Estadio) caen por disponibilidad.
 
+- **Actualización v6 (2026-10-04) — verificación DURA de disponibilidad y tipo de propiedad:** el usuario (molesto, con razón) tuvo que cazar a mano que las opciones fallaban por disponibilidad por-noche y por tipo. Se corrigió de raíz:
+  - **Nuevo `src/scrapers/verifica_airbnb.py`:** intercepta la llamada real de Airbnb `PdpAvailabilityCalendar` (disponibilidad por día: available / forCheckin / forCheckout / minNights) y decide el rango exacto **30→2** de verdad; y lee la **página /amenities** (sin ruido de "similares") para el aire. Validado contra el feedback: Torre Gardes/Casa Bella/Apto Estadio → NO; La Flora/Casa-museo → DISPONIBLE. El calendario embebido en HTML NO servía (carga aparte); la intercepción de red SÍ.
+  - **Tipo de propiedad por `sharingConfig`:** varias "casas" eran en realidad **apartahotel/hotel** (Lofthouse 14) o **habitación compartida con baños compartidos** (viola el requisito base). Se extrae `propertyType` + overview autoritativo del HTML. Lección: **nunca asumir "casa entera" por el título** — Airbnb mezcla apartahoteles, hoteles y habitaciones compartidas en los resultados aunque filtres.
+  - **Bug propio:** una alternancia de regex sin agrupar (`(\d+)\s+a|b`) devolvía `group(1)=None` → `int(None)`. Agrupar con `(?:...)`.
+  - **Set final = 3 casas ENTERAS con rango 30→2 verificado:** La Flora (7 camas, aire, 5,0, ~4,8 km, **80.1** ★), Casa-museo (6 camas, ~0,6 km la más céntrica, 73.2), Apto entero con servicios (hallazgo del usuario; 4 camas, 4 baños, aire, ~3,6 km, 66.8). Descartes marcados por tipo/disponibilidad (apartahotel, hotel, habitación compartida, sin fechas).
+  - **Pedido del usuario atendido:** se agregó la columna **Total (3 noches)** junto a la de por-persona en los 4 entregables.
+
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────────

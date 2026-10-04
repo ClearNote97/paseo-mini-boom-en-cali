@@ -32,12 +32,10 @@ JSON_OUT = AQUI / "airbnb_fichas.json"
 
 # Candidatas a verificar (id → etiqueta corta). Se edita por iteración.
 FICHAS = {
-    "1470314362888330685": "Apto Granada/Chipichape fresco",
-    "1192253493415245874": "Agradable y Hermoso Apto (La Flora)",
-    "1693694879035428775": "Torre Gardes",
-    "1548961086363759352": "Museo Fundación Cerón (San Antonio)",
-    "38526055": "Casa 7p garaje",
-    "1112396000580569933": "Refugio Vistas",
+    # Confirmar tipo de propiedad (entera vs hotel/guesthouse) + precio limpio:
+    "1192253493415245874": "Apto La Flora (7 camas)",
+    "1548961086363759352": "Casa-museo Fundación Cerón",
+    "49124373": "Apto tranquilo (entero)",
 }
 
 # Anclas de la "zona de actividades" del noroeste/oeste (Granada y El Peñón / Av. Sexta).
@@ -134,9 +132,45 @@ def _num(patron: str, texto: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
+def _html_int(html: str, pat: str) -> int | None:
+    m = re.search(pat, html)
+    return int(m.group(1)) if m else None
+
+
+def _lbl_int(html: str, unidad: str) -> int | None:
+    """Número dentro de una etiqueta corta entre comillas, p.ej. "5 camas" → 5. Evita texto suelto."""
+    m = re.search(r'"(\d+)\s+(?:' + unidad + r')"', html)
+    return int(m.group(1)) if m else None
+
+
+def _lbl_float(html: str, unidad: str) -> float | None:
+    m = re.search(r'"(\d+(?:[.,]5)?)\s+(?:' + unidad + r')"', html)
+    return float(m.group(1).replace(",", ".")) if m else None
+
+
 def _banos(texto: str) -> float | None:
     m = re.search(r"(\d+(?:[.,]5)?)\s*ba[ñn]os?", texto, re.I)
     return float(m.group(1).replace(",", ".")) if m else None
+
+
+def _monto(s: str) -> int | None:
+    dig = re.sub(r"[.,]", "", re.sub(r"[^\d.,]", "", s or ""))
+    return int(dig) if dig.isdigit() and len(dig) >= 4 else None
+
+
+def _precio_total(txt: str) -> int | None:
+    """Precio total del periodo (3 noches). Prioriza 'Total $X'; si no, $X por noche × 3."""
+    m = re.search(r"Total[^$]{0,30}(\$\s?[\d.,]{5,})", txt, re.I)
+    if m:
+        return _monto(m.group(1))
+    m = re.search(r"\b(\d+)\s*noches?[^$]{0,30}(\$\s?[\d.,]{5,})", txt, re.I)
+    if m:
+        return _monto(m.group(2))
+    m = re.search(r"(\$\s?[\d.,]{4,})\s*(COP\s*)?(?:por\s*noche|/\s*noche|noche)", txt, re.I)
+    if m:
+        v = _monto(m.group(1))
+        return v * 3 if v else None
+    return None
 
 
 async def ficha(contexto, room_id: str, etiqueta: str) -> dict:
@@ -190,12 +224,25 @@ async def ficha(contexto, room_id: str, etiqueta: str) -> dict:
     if m_b:
         barrio = m_b.group(1).strip()
 
+    # sharingConfig.title = overview autoritativo, p.ej. "Apartamento entero · Cali · ★4.9 · 7
+    # huéspedes · 3 dormitorios · 5 camas · 2 baños"  (en apartahoteles trae datos del EDIFICIO).
+    m_sc = re.search(r'"sharingConfig":\{"__typename":"PdpSharingConfig","title":"([^"]+)"', html)
+    sc = m_sc.group(1) if m_sc else ""
+    m_pt = re.search(r'"propertyType":"([^"]+)"', html)
+    property_type = m_pt.group(1) if m_pt else None
+
+    def _sc_int(unidad):
+        m = re.search(r"(\d+)\s+(?:" + unidad + r")", sc)
+        return int(m.group(1)) if m else None
+
     datos = {
         "id": room_id, "etiqueta": etiqueta, "url": url.split("?")[0],
-        "huespedes": _num(r"(\d+)\s*hu[eé]spedes", txt),
-        "habitaciones": _num(r"(\d+)\s*(?:habitaci[oó]n|dormitorio|rec[aá]mara)", txt),
-        "camas": _num(r"(\d+)\s*camas?", txt),
-        "banos": _banos(txt),
+        "property_type": property_type, "overview": sc,
+        "huespedes": _html_int(html, r'"personCapacity":(\d+)') or _sc_int(r"hu[eé]spedes?"),
+        "habitaciones": _sc_int(r"dormitorios?|habitaciones?"),
+        "camas": _sc_int(r"camas?"),
+        "banos": (lambda m: float(m.group(1).replace(",", ".")) if m else None)(
+            re.search(r"(\d+(?:[.,]5)?)\s+ba[ñn]os?", sc)),
         "aire": bool(re.search(r"aire acondicionado", txt, re.I)),
         "piscina": bool(re.search(r"piscina", txt, re.I)),
         "cocina": bool(re.search(r"\bcocina\b", txt, re.I)),
@@ -203,14 +250,13 @@ async def ficha(contexto, room_id: str, etiqueta: str) -> dict:
         "rating": rating,
         "barrio": barrio,
         "lat": lat, "lng": lng, "sector": sector, "km_actividades": km,
-        "disponible_rango": disponible, "disponible_calendario": disponible_cal,
+        "precio_total": _precio_total(txt_full),
         "titulo": (await pagina.title()).split(" - Airbnb")[0],
     }
-    disp_txt = {True: "SÍ", False: "NO", None: "?"}[disponible]
-    fuente = "cal" if disponible_cal is not None else "heur"
-    print(f"  {datos['huespedes']}h · {datos['habitaciones']}hab · {datos['camas']}camas · {datos['banos']}baños "
-          f"| aire:{datos['aire']} pisc:{datos['piscina']} parq:{datos['parqueadero']} | ★{datos['rating']} "
-          f"| {sector} ~{km}km act. | dispo(30-31-1):{disp_txt}[{fuente}]")
+    pt = datos["precio_total"]
+    print(f"  [{property_type}] {datos['huespedes']}h · {datos['habitaciones']}hab · {datos['camas']}camas · "
+          f"{datos['banos']}baños | aire:{datos['aire']} | {sector} ~{km}km | total:{pt} pp:{pt//7 if pt else '?'}")
+    print(f"     overview: {sc[:90]}")
     await pagina.close()
     return datos
 

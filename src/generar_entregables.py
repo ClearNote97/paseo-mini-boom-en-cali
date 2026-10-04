@@ -167,45 +167,41 @@ ZONAS_EVITAR = ["Aguablanca (oriente)", "Siloé", "Terrón Colorado (ladera oest
 # para el rango 30 oct–2 nov debe confirmarse al reservar (Airbnb no la expone de forma fiable).
 # Mismo puntaje 0–100 que los hostales (ver D-005), en un ranking SEPARADO: el precio se normaliza
 # DENTRO del set Airbnb; los hostales quedan intactos.
+# Solo CASAS/APTOS ENTEROS (privados), con disponibilidad del rango 30→2 VERIFICADA en el calendario.
 AIRBNB_ENTEROS = [
-    {"nombre": "Apto Granada / Chipichape (fresco)", "zona": "Noroeste", "km": 1.8, "cap": 8, "hab": 3,
-     "camas": 4, "banos": 2.5, "total": 908_397, "ac": False, "piscina": False, "cocina": True,
-     "seguridad": 5, "cercania": 5, "parq": 4, "social": 2, "rating": 4.75, "corto": "Apto Granada/Chipichape",
-     "link": "https://www.airbnb.com/rooms/1470314362888330685",
-     "nota": "La más céntrica del noroeste (~1,8 km) y barata, 2,5 baños. OJO: 4 camas (cap. 8) — confirmá sofá-cama para los 7."},
-    {"nombre": "Agradable y Hermoso Apartamento (La Flora)", "zona": "Norte (La Flora)", "km": 4.8, "cap": 10,
-     "hab": 3, "camas": 7, "banos": 2.0, "total": 1_301_258, "ac": True, "piscina": False, "cocina": True,
-     "seguridad": 5, "cercania": 3, "parq": 4, "social": 2, "rating": 5.0, "corto": "Apto La Flora (7 camas)",
+    {"nombre": "Vivienda entera (La Flora)", "zona": "Norte (La Flora)", "km": 4.8, "cap": 10, "hab": 3,
+     "camas": 7, "banos": 2.0, "total": 1_301_262, "ac": True, "piscina": False, "cocina": True,
+     "seguridad": 5, "cercania": 3, "parq": 4, "social": 2, "rating": 5.0, "corto": "La Flora (7 camas)",
      "link": "https://www.airbnb.com/rooms/1192253493415245874",
-     "nota": "7 camas (¡una por persona!), aire y rating 5,0 — la mejor para dormir a los 7. Pero a ~4,8 km (norte)."},
+     "nota": "Vivienda entera, 7 camas (una por persona), aire y rating 5,0 — la mejor para dormir a los 7. A ~4,8 km (norte)."},
     {"nombre": "Casa-museo Fundación Cerón (San Antonio)", "zona": "Oeste (San Antonio)", "km": 0.6, "cap": 12,
      "hab": 6, "camas": 6, "banos": 2.5, "total": 1_294_200, "ac": False, "piscina": False, "cocina": True,
      "seguridad": 5, "cercania": 5, "parq": 2, "social": 2, "rating": 4.63, "corto": "Casa-museo S.Antonio",
      "link": "https://www.airbnb.com/rooms/1548961086363759352",
-     "nota": "La MÁS cerca (0,6 km, plena San Antonio), 6 habitaciones y 6 camas. Confirmar que se alquila completa y el aire."},
-    {"nombre": "Torre Gardes", "zona": "Noroeste", "km": 3.0, "cap": 8, "hab": 4, "camas": 4, "banos": 4.0,
-     "total": 2_000_000, "ac": False, "piscina": True, "cocina": True,
-     "seguridad": 5, "cercania": 4, "parq": 4, "social": 2, "rating": 5.0, "corto": "Torre Gardes",
-     "link": "https://www.airbnb.com/rooms/1693694879035428775",
-     "nota": "Noroeste (~3 km), piscina, 4 baños y rating 5,0. OJO: 4 camas (confirmá sofá-cama) y de las más caras."},
+     "nota": "Alojamiento entero, la MÁS cerca (0,6 km, plena San Antonio), 6 camas y 2,5 baños. Confirmar el aire."},
+    {"nombre": "Apartamento entero con servicios (tu hallazgo)", "zona": "Oeste", "km": 3.6, "cap": 8, "hab": 4,
+     "camas": 4, "banos": 4.0, "total": 1_723_404, "ac": True, "piscina": False, "cocina": True,
+     "seguridad": 5, "cercania": 4, "parq": 4, "social": 2, "rating": 4.87, "corto": "Apto entero servicios",
+     "link": "https://www.airbnb.com/rooms/49124373",
+     "nota": "Apto entero con aire y 4 baños (lujo), rating 4,87, a ~3,6 km. OJO: 4 camas (cap. 8) — confirmá sofá-cama para 7."},
 ]
-# Las que descartaste (con tu razón) y las que no cuadran — con el porqué (ubicación por coordenadas).
+# Marcadas donde van: tipo de propiedad y disponibilidad VERIFICADOS. No son casa entera o no cuadran.
 AIRBNB_DESCARTES = [
-    {"nombre": "Casa amoblada para 7 personas con garaje", "zona": "Centro-oeste ~3,6 km", "cap": 7, "camas": 5,
-     "banos": 2.5, "total": 635_000, "link": "https://www.airbnb.com/rooms/38526055",
-     "motivo": "La descartaste: poco atractiva, aunque era barata (5 camas, garaje)."},
-    {"nombre": "Espacioso refugio de 3 dormitorios – Vistas", "zona": "Oeste ~2,4 km", "cap": 8, "camas": 5,
-     "banos": 3.0, "total": 1_974_477, "link": "https://www.airbnb.com/rooms/1112396000580569933",
-     "motivo": "La descartaste: las noches no cuadran y es cara (~$282k pp)."},
-    {"nombre": "Casa Bella, bohemia San Antonio", "zona": "Oeste ~1,0 km", "cap": 8, "camas": 5, "banos": 2.0,
-     "total": 1_093_305, "link": "https://www.airbnb.com/rooms/49321247",
-     "motivo": "Excelente ubicación (~1 km) pero SIN disponibilidad para la noche del 30."},
-    {"nombre": "Apartamento cerca del Estadio", "zona": "Oeste ~1,9 km", "cap": 8, "camas": 5, "banos": 2.0,
-     "total": 604_854, "link": "https://www.airbnb.com/rooms/28196917",
-     "motivo": "Buena zona (~1,9 km) pero el calendario no permite la salida el 2."},
-    {"nombre": "Casa con piscina privada", "zona": "Centro ~4,2 km", "cap": 8, "camas": 5, "banos": 2.5,
-     "total": 3_014_260, "link": "https://www.airbnb.com/rooms/825481159079037573",
-     "motivo": "Se sale del presupuesto (~$431k pp) y queda retirada."},
+    {"nombre": "Hab. compartida en casa de huéspedes", "zona": "Oeste ~3,1 km", "cap": 7, "camas": 9, "banos": 6.0,
+     "total": 1_440_622, "link": "https://www.airbnb.com/rooms/1277005393867902776",
+     "motivo": "Es una HABITACIÓN COMPARTIDA con 6 baños COMPARTIDOS → va contra lo de no compartir baño con extraños."},
+    {"nombre": "Lofthouse 14 (apartahotel)", "zona": "Oeste ~2,0 km", "cap": 7, "camas": 0, "banos": 0.0,
+     "total": 1_489_745, "link": "https://www.airbnb.com/rooms/1556929420516931269",
+     "motivo": "Es un APARTAHOTEL (habitación en hotel), no una casa entera. Privado y con aire, pero formato hotel."},
+    {"nombre": "Habitación en hotel", "zona": "Oeste ~2,1 km", "cap": 7, "camas": 0, "banos": 0.0,
+     "total": 1_489_745, "link": "https://www.airbnb.com/rooms/1727019164229496188",
+     "motivo": "Es un HOTEL (habitación), no una casa entera."},
+    {"nombre": "Apto Granada / Chipichape", "zona": "Noroeste ~1,8 km", "cap": 8, "camas": 4, "banos": 2.5,
+     "total": 908_397, "link": "https://www.airbnb.com/rooms/1470314362888330685",
+     "motivo": "Lindo y céntrico, pero el calendario NO tiene el rango 30→2 (verificado) — y no tiene aire."},
+    {"nombre": "Torre Gardes", "zona": "Noroeste ~3,0 km", "cap": 8, "camas": 4, "banos": 4.0,
+     "total": 2_000_000, "link": "https://www.airbnb.com/rooms/1693694879035428775",
+     "motivo": "Piscina y 4 baños, pero el calendario NO tiene las fechas (verificado)."},
 ]
 for _a in AIRBNB_ENTEROS + AIRBNB_DESCARTES:
     _a["pp"] = _a["total"] // CONTEXTO["personas"]
@@ -454,33 +450,36 @@ def build_md() -> None:
       "presupuesto, hay **pocos**. Estos son los que cumplen de verdad. *Ojo: la disponibilidad para el rango "
       "completo (**30 oct → 2 nov**) y las amenidades (aire/piscina) hay que confirmarlas en el link de cada "
       "una — Airbnb no las expone de forma fiable al barrer.*\n")
-    A("| # | Casa / apto entero | Sector | Dist. actividades | Puntaje | Camas | Baños | Aire | ★ Rating | Por persona (3n) | Ver |")
-    A("|:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|:--:|")
+    A("| # | Casa / apto entero | Sector | Dist. | Puntaje | Camas | Baños | Aire | ★ | Total (3n) | Por persona | Ver |")
+    A("|:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|--:|:--:|")
     for i, a in enumerate(AIRBNB_RANK, 1):
         estrella = " ★" if a["reco"] else ""
         banos_txt = f"{a['banos']:g}".replace(".", ",")
         A(f"| {i} | **{a['nombre']}**{estrella} | {a['zona']} | ~{a['km']} km | **{puntaje_ab(a):.1f}** | "
-          f"{a['camas']} | {banos_txt} | {ame(a['ac'])} | {a['rating']} | {cop(a['pp'])} | [link]({a['link']}) |")
+          f"{a['camas']} | {banos_txt} | {ame(a['ac'])} | {a['rating']} | {cop(a['total'])} | {cop(a['pp'])} | "
+          f"[link]({a['link']}) |")
     A("")
     _ab_total = AIRBNB_MEJOR["pp"] + TRANSPORTE_REF
-    _ab_top = AIRBNB_RANK[0]
     _ab_cerca = min(AIRBNB_ENTEROS, key=lambda a: a["km"])
-    A("> **Cómo leer la ★:** marca la mejor **con cama para los siete** (camas ≥5), no solo la de mayor puntaje. "
-      f"La #1 por puntaje, *{_ab_top['nombre']}* ({puntaje_ab(_ab_top):.1f}), es la más barata y céntrica "
-      f"(~{_ab_top['km']} km) **pero trae {_ab_top['camas']} camas** (cap. {_ab_top['cap']} con sofá-cama) — hay "
-      "que confirmar que durmamos bien los 7.\n")
-    A(f"**★ Mejor con cama para todos: {AIRBNB_MEJOR['nombre']}** — {AIRBNB_MEJOR['camas']} camas (una por "
-      f"persona), aire y rating {AIRBNB_MEJOR['rating']}; con carro propio local ≈ {cop(_ab_total)} por persona "
-      f"({estado_pp(_ab_total).lower()}). Su pero es la distancia (~{AIRBNB_MEJOR['km']} km, al norte). Si lo que "
-      f"más pesa es estar *encima* de la rumba, la más céntrica es **{_ab_cerca['nombre']}** (~{_ab_cerca['km']} "
-      f"km, {_ab_cerca['camas']} camas). La distancia (coordenadas) está en la tabla para elegir según prioridad; "
-      "y conviene compararlas contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.\n")
-    A("Cercanas pero con reparos (o las que ya se descartaron), con el porqué verificado por coordenadas:\n")
+    A("> **Disponibilidad verificada:** las tres tienen el rango **30 oct → 2 nov libre** (se leyó el calendario "
+      "real de Airbnb) y son **alojamientos enteros** (ningún baño se comparte con extraños). La ★ marca la "
+      "mejor **con cama para los siete** (camas ≥5).\n")
+    A(f"**★ Mejor con cama para todos: {AIRBNB_MEJOR['nombre']}** ({puntaje_ab(AIRBNB_MEJOR):.1f}/100) — "
+      f"{AIRBNB_MEJOR['camas']} camas (una por persona), aire y rating {AIRBNB_MEJOR['rating']}; total "
+      f"{cop(AIRBNB_MEJOR['total'])} → {cop(AIRBNB_MEJOR['pp'])} por persona, y con carro propio local ≈ "
+      f"{cop(_ab_total)} pp ({estado_pp(_ab_total).lower()}). Su único pero es la distancia (~{AIRBNB_MEJOR['km']} "
+      f"km, al norte); si lo que más pesa es estar *encima* de la rumba, la más céntrica es "
+      f"**{_ab_cerca['nombre']}** (~{_ab_cerca['km']} km, {_ab_cerca['camas']} camas). Conviene compararlas "
+      "contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.\n")
+    A("**Marcadas donde van** — tipo de propiedad y disponibilidad verificados (no son casa entera, o no tienen "
+      "el rango 30→2):\n")
     for d in AIRBNB_DESCARTES:
-        banos_txt = f"{d['banos']:g}".replace(".", ",")
-        banos_lbl = "baño" if d["banos"] == 1 else "baños"
-        A(f"- **[{d['nombre']}]({d['link']})** ({d['zona']}, {cop(d['pp'])} pp · {d['camas']} camas · "
-          f"{banos_txt} {banos_lbl}) — {d['motivo']}")
+        extra = ""
+        if d["camas"]:
+            banos_txt = f"{d['banos']:g}".replace(".", ",")
+            extra = f" · {d['camas']} camas · {banos_txt} baños"
+        A(f"- **[{d['nombre']}]({d['link']})** ({d['zona']}, total {cop(d['total'])} → {cop(d['pp'])} pp{extra}) "
+          f"— {d['motivo']}")
     A("")
 
     A(f"## {SEC['mov_donde']}\n")
@@ -731,40 +730,42 @@ def build_xlsx() -> None:
     # Airbnb (casas/aptos enteros) — barrido real, con su propio puntaje (ranking separado)
     ws = wb.create_sheet("Airbnb (ranking)"); ws.sheet_view.showGridLines = False
     ws.merge_cells("A1:J1")
-    ws["A1"] = "🛏️ Airbnb — casas/aptos enteros en el noroeste/oeste (ubicación por coordenadas)"; ws["A1"].font = f_title
-    ws.merge_cells("A2:J2")
-    ws["A2"] = (f"Alojamiento entero, 7 personas, noroeste/oeste cerca de actividades. Ubicación verificada por "
-                f"COORDENADAS ('Dist.' = km a Granada/El Peñón). Mismo puntaje 0–100 que los hostales, precio "
-                f"normalizado entre casas. Mejor: {AIRBNB_MEJOR['nombre']} ({puntaje_ab(AIRBNB_MEJOR):.1f}/100). "
-                f"Disponibilidad del rango (30→2) y aire/piscina: confirmar al reservar.")
+    ws["A1"] = "🛏️ Airbnb — casas/aptos ENTEROS en el noroeste/oeste (disponibilidad 30→2 verificada)"; ws["A1"].font = f_title
+    ws.merge_cells("A2:K2")
+    ws["A2"] = (f"Solo alojamientos enteros (ningún baño compartido), 7 personas. Ubicación por COORDENADAS "
+                f"('Dist.' = km a Granada/El Peñón) y rango 30→2 verificado en el calendario real. Mismo puntaje "
+                f"0–100 que los hostales. Mejor con cama para los 7: {AIRBNB_MEJOR['nombre']} "
+                f"({puntaje_ab(AIRBNB_MEJOR):.1f}/100). Aire: confirmar al reservar.")
     ws["A2"].font = f_sub; ws["A2"].alignment = left; ws.row_dimensions[2].height = 56
-    head_row(ws, 4, ["Casa / apto entero", "Sector", "Dist. act. (km)", "Puntaje", "Camas", "Baños", "Aire",
-                     "★ Rating", "Por persona (3n)", "Ver"])
+    ws.merge_cells("A1:K1")
+    head_row(ws, 4, ["Casa / apto entero", "Sector", "Dist. (km)", "Puntaje", "Camas", "Baños", "Aire",
+                     "★ Rating", "Total (3n)", "Por persona (3n)", "Ver"])
     r = 5
     for i, a in enumerate(AIRBNB_RANK):
         vals = [a["nombre"] + (" ★" if a["reco"] else ""), a["zona"], a["km"], puntaje_ab(a), a["camas"],
-                a["banos"], ame(a["ac"]), a["rating"], a["pp"]]
+                a["banos"], ame(a["ac"]), a["rating"], a["total"], a["pp"]]
         for j, v in enumerate(vals, 1):
             cell = ws.cell(row=r, column=j, value=v)
             cell.border = border; cell.alignment = center if j != 1 else left
             if j == 4:
                 cell.font = f_bold
-            if j == 9:
+            if j in (9, 10):
                 cell.number_format = money
             if a["reco"]:
                 cell.fill = fill_reco
             elif i % 2 == 0:
                 cell.fill = fill_alt
-        linkcell(ws, r, 10, a["link"]); r += 1
+        linkcell(ws, r, 11, a["link"]); r += 1
     r += 1
-    ws.cell(row=r, column=1, value="Cercanas con reparos / descartadas (ubicación por coordenadas):").font = f_bold
+    ws.cell(row=r, column=1, value="Marcadas donde van — no son casa entera o no tienen el rango 30→2 (verificado):").font = f_bold
     r += 1
     for d in AIRBNB_DESCARTES:
-        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=10)
-        ws.cell(row=r, column=1, value=f"{d['nombre']} — {d['zona']}, {cop(d['pp'])} pp · {d['camas']} camas · "
-                f"{d['banos']:g} baños → {d['motivo']}").font = f_sub
+        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=11)
+        extra = f" · {d['camas']} camas · {d['banos']:g} baños" if d["camas"] else ""
+        ws.cell(row=r, column=1, value=f"{d['nombre']} — {d['zona']}, total {cop(d['total'])} → {cop(d['pp'])} pp"
+                f"{extra} → {d['motivo']}").font = f_sub
         ws.cell(row=r, column=1).alignment = left; r += 1
-    for j, w in enumerate([34, 16, 13, 9, 8, 8, 9, 10, 16, 8], 1):
+    for j, w in enumerate([34, 16, 10, 9, 7, 7, 8, 9, 15, 16, 8], 1):
         ws.column_dimensions[get_column_letter(j)].width = w
 
     # Una hoja por lectura
@@ -944,20 +945,21 @@ def build_pdf() -> None:
                            tabla_datos(data, [3.8 * cm, 5.2 * cm, 3.2 * cm, 2.2 * cm], [p["recomendado"] for p in PAQUETES])]))
     E.append(Spacer(1, 0.22 * cm))
 
-    ab_data = [["Casa / apto entero (noroeste/oeste)", "Dist. act.", "Puntaje", "Baños", "Por persona (3n)"]]
+    ab_data = [["Casa / apto entero (noroeste/oeste)", "Dist.", "Puntaje", "Baños", "Total (3n)", "Por persona"]]
     for a in AIRBNB_RANK:
         st = cellb if a["reco"] else cell
         ab_data.append([Paragraph(a["nombre"] + (" ★" if a["reco"] else ""), st), f"~{a['km']} km",
-                        f"{puntaje_ab(a):.1f}", f"{a['banos']:g}".replace(".", ","), cop(a["pp"])])
+                        f"{puntaje_ab(a):.1f}", f"{a['banos']:g}".replace(".", ","), cop(a["total"]), cop(a["pp"])])
     ab_total = AIRBNB_MEJOR["pp"] + TRANSPORTE_REF
     E.append(KeepTogether([
-        pill("Airbnb — casas enteras (noroeste/oeste, ubicación por coordenadas)"), Spacer(1, 0.12 * cm),
-        Paragraph("Alojamiento <b>entero</b> (ningún baño se comparte), ubicación verificada por coordenadas "
-                  "(<b>Dist.</b> = km a la zona de actividades). Mismo puntaje que los hostales. La mejor + carro "
-                  f"propio local ≈ <b>{cop(ab_total)}</b> por persona. Confirmar disponibilidad del rango (30→2) y "
-                  "aire/piscina al reservar.", small),
+        pill("Airbnb — casas ENTERAS (noroeste/oeste, disponibilidad 30→2 verificada)"), Spacer(1, 0.12 * cm),
+        Paragraph("Solo alojamientos <b>enteros</b> (ningún baño se comparte), ubicación por coordenadas "
+                  "(<b>Dist.</b> = km a la zona de actividades) y rango <b>30→2</b> verificado en el calendario. "
+                  f"La ★ es la mejor con cama para los 7; con carro propio local ≈ <b>{cop(ab_total)}</b> por "
+                  "persona. Confirmar el aire al reservar.", small),
         Spacer(1, 0.1 * cm),
-        tabla_datos(ab_data, [7.2 * cm, 1.7 * cm, 1.7 * cm, 1.4 * cm, 2.8 * cm], [a["reco"] for a in AIRBNB_RANK])]))
+        tabla_datos(ab_data, [6.0 * cm, 1.5 * cm, 1.5 * cm, 1.3 * cm, 2.7 * cm, 2.6 * cm],
+                    [a["reco"] for a in AIRBNB_RANK])]))
     E.append(Spacer(1, 0.22 * cm))
 
     E.append(pill("Para revisar cada opción")); E.append(Spacer(1, 0.12 * cm))
@@ -1198,37 +1200,39 @@ def build_pptx() -> None:
            [(f"★ {AIRBNB_MEJOR['corto']}", 16, C_PRIM_D, True),
             (f"La mejor CON cama para los 7 ({AIRBNB_MEJOR['camas']} camas, {puntaje_ab(AIRBNB_MEJOR):.1f}/100).",
              14, C_INK, False), ("", 8, C_INK, False),
-            (f"A ~{AIRBNB_MEJOR['km']} km. Con carro local ≈ {cop(_ab_total)} pp.", 13, C_INK, False),
+            (f"Total {cop(AIRBNB_MEJOR['total'])} ({cop(AIRBNB_MEJOR['pp'])} pp). Con carro local ≈ {cop(_ab_total)} pp.",
+             13, C_INK, False),
             ("", 6, C_INK, False),
-            ("La #1 por puntaje es más barata/céntrica pero trae 4 camas. Confirmá disponibilidad 30→2.",
+            ("Disponibilidad 30→2 verificada en el calendario. A ~{} km.".format(AIRBNB_MEJOR["km"]),
              11.5, C_MUTE, False)],
            anchor=MSO_ANCHOR.MIDDLE)
 
-    # ── 5d Airbnb — comparación (tabla con puntaje + distancia) ──
+    # ── 5d Airbnb — comparación (tabla con puntaje, distancia, total y pp) ──
     s = prs.slides.add_slide(blank); fondo(s); header(s, "🛏️", "Airbnb (noroeste/oeste) — comparación")
     bloque(s, 0.6, 1.2, 12.1, 0.55,
-           [("Alojamiento entero (ningún baño se comparte). «Dist.» = km a la zona de actividades (coordenadas). "
-             "Aire «según anuncio» y disponibilidad del 30→2: confirmar.", 13, C_INK, False)])
-    _cab_ab = ["Casa / apto entero", "Sector", "Dist. act.", "Puntaje", "Baños", "Por persona (3n)", "Ver"]
-    tabla = s.shapes.add_table(len(AIRBNB_RANK) + 1, 7, Inches(0.5), Inches(1.9), Inches(12.33), Inches(4.3)).table
-    for w, ancho in zip(range(7), [Inches(4.3), Inches(1.9), Inches(1.3), Inches(1.0), Inches(1.0), Inches(2.03), Inches(0.8)]):
+           [("Solo alojamientos enteros (ningún baño se comparte). «Dist.» = km a la zona de actividades. "
+             "Rango 30→2 verificado en el calendario. Aire: confirmar.", 13, C_INK, False)])
+    _cab_ab = ["Casa / apto entero", "Sector", "Dist.", "Puntaje", "Baños", "Total (3n)", "Por persona", "Ver"]
+    tabla = s.shapes.add_table(len(AIRBNB_RANK) + 1, 8, Inches(0.4), Inches(1.9), Inches(12.5), Inches(3.6)).table
+    for w, ancho in zip(range(8), [Inches(3.5), Inches(1.7), Inches(1.0), Inches(1.0), Inches(0.9),
+                                   Inches(1.95), Inches(1.65), Inches(0.8)]):
         tabla.columns[w].width = ancho
     for j, h in enumerate(_cab_ab):
         c0 = tabla.cell(0, j); c0.text = h; c0.fill.solid(); c0.fill.fore_color.rgb = C_PRIM
-        rr = c0.text_frame.paragraphs[0].runs[0]; rr.font.bold = True; rr.font.color.rgb = C_WHITE; rr.font.size = Pt(11.5)
+        rr = c0.text_frame.paragraphs[0].runs[0]; rr.font.bold = True; rr.font.color.rgb = C_WHITE; rr.font.size = Pt(11)
     for i, a in enumerate(AIRBNB_RANK, 1):
         banos_txt = f"{a['banos']:g}".replace(".", ",")
         fila = [a["corto"] + (" ★" if a["reco"] else ""), a["zona"], f"~{a['km']} km", f"{puntaje_ab(a):.1f}",
-                banos_txt, cop(a["pp"]), "ver"]
+                banos_txt, cop(a["total"]), cop(a["pp"]), "ver"]
         for j, val in enumerate(fila):
             cl = tabla.cell(i, j); cl.text = val
             para = cl.text_frame.paragraphs[0]; rr = para.runs[0]
-            rr.font.size = Pt(10.5); rr.font.color.rgb = C_INK
-            if j in (2, 3, 4, 5, 6):
+            rr.font.size = Pt(10); rr.font.color.rgb = C_INK
+            if j in (2, 3, 4, 5, 6, 7):
                 para.alignment = PP_ALIGN.CENTER
-            if j == 2:
+            if j == 3:
                 rr.font.bold = True
-            if j == 6:
+            if j == 7:
                 rr.font.color.rgb = C_PRIM_D; rr.font.underline = True; rr.hyperlink.address = a["link"]
             cl.fill.solid()
             cl.fill.fore_color.rgb = (RGBColor.from_string(ACCENT_SOFT) if a["reco"]
