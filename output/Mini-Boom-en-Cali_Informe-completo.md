@@ -78,29 +78,27 @@ Ordenados por ese puntaje propio. La última columna es para juzgar con ojos pro
 
 > **\* Sobre los baños:** el grupo no quiere compartir baño con extraños. En un hostal eso *depende de la habitación* — hay que confirmar al reservar que tenga baño propio (o reservar una habitación privada para los siete). La casa o apto entero resuelve el punto de raíz: **ningún baño se comparte**. Es una dimensión informativa; **no entra al puntaje** (lo decide el grupo).
 
-### Airbnb — casas y aptos enteros en el occidente (mismo puntaje, ranking aparte)
+### Airbnb — casas y aptos enteros en el noroeste/oeste (ubicación verificada por coordenadas)
 
-El grupo pidió apuntar al **occidente de Cali, cerca de la zona de actividades** (San Antonio, El Peñón, Granada, Santa Teresita), y en casa o apartamento **entero** — donde ningún baño se comparte con extraños. Se rebuscó con Playwright y se les aplicó **el mismo puntaje 0–100** que a los hostales (seguridad 30% · amenidades 20% · precio 20% · cercanía 12% · parqueadero 10% · social 8%), en un **ranking separado**: aquí el precio se normaliza entre las casas, y el ambiente *social* las castiga (no hay bar ni vida de hostal) — por eso se comparan entre ellas, no contra los hostales.
+El grupo pidió apuntar al **noroeste/oeste de Cali, cerca de la zona de actividades**, en casa o apartamento **entero** (ningún baño se comparte). Para no fiarse del título —que engaña: varias que «parecían» del oeste estaban en el este o el sur—, **se verificó la ubicación por las coordenadas de cada ficha** y se midió la distancia a la zona de actividades (Granada / El Peñón). Se les aplicó **el mismo puntaje 0–100** que a los hostales (seguridad 30% · amenidades 20% · precio 20% · cercanía 12% · parqueadero 10% · social 8%), en un **ranking separado** (precio normalizado entre casas).
 
-> **Lectura rápida:** la mejor por puntaje es **Casa amoblada para 7 personas con garaje** (94.6/100). Hay casas enteras desde ~$78.571 por persona las 3 noches, así que la opción privada es, además, de las más económicas. *Aire y piscina van «según el anuncio» — confirmar al reservar.*
+> **Realidad del inventario:** casas/aptos enteros para 7, en el oeste core, disponibles y en presupuesto, hay **pocos**. Estos son los que cumplen de verdad. *La disponibilidad para la noche del 30 y las amenidades (aire/piscina) hay que confirmarlas al reservar.*
 
-| # | Casa / apto entero | Zona | Puntaje | Cabe | Camas | Baños | Aire | Piscina | ★ Rating | Por persona (3n) | Ver |
-|:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|--:|:--:|
-| 1 | **Casa amoblada para 7 personas con garaje** ★ | San Antonio | **94.6** | 7 | 5 | 2,5 | Sí | Sí | 4.97 | $90.714 | [link](https://www.airbnb.com/rooms/38526055) |
-| 2 | **Casa Bella, espaciosa en la bohemia San Antonio** | San Antonio | **89.7** | 8 | 5 | 2 | Sí | Sí | 4.92 | $156.186 | [link](https://www.airbnb.com/rooms/49321247) |
-| 3 | **Casa de 4 Habitaciones – Terraza y Aire/C** | San Antonio | **89.2** | 9 | 5 | 1,5 | Sí | Sí | 4.89 | $78.571 | [link](https://www.airbnb.com/rooms/1048602132521468133) |
-| 4 | **Apartamento moderno con piscina** | Granada | **80.9** | 8 | 5 | 2 | — | Sí | 4.86 | $172.576 | [link](https://www.airbnb.com/rooms/1699978286025248131) |
-| 5 | **Casa Amplia y Cómoda en Las Flores** | Las Flores (norte) | **76.1** | 8 | 6 | 2 | Sí | — | 4.96 | $94.285 | [link](https://www.airbnb.com/rooms/1071190715409487725) |
-| 6 | **Casa para 8 personas** | Granada | **71.1** | 9 | 6 | 2 | — | — | 4.96 | $124.151 | [link](https://www.airbnb.com/rooms/880582897050465656) |
-| 7 | **Casa con piscina privada** | San Antonio | **66.8** | 8 | 5 | 2,5 | — | Sí | 4.97 | $430.608 | [link](https://www.airbnb.com/rooms/825481159079037573) |
+| # | Casa / apto entero | Sector | Dist. actividades | Puntaje | Camas | Baños | Aire | ★ Rating | Por persona (3n) | Ver |
+|:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|:--:|
+| 1 | **Apartamento cerca del Estadio** ★ | Oeste | ~1.9 km | **79.2** | 5 | 2 | Sí | 4.78 | $86.407 | [link](https://www.airbnb.com/rooms/28196917) |
+| 2 | **Casa amoblada para 7 personas con garaje** | Centro-oeste | ~3.6 km | **78.4** | 5 | 2,5 | Sí | 4.97 | $90.714 | [link](https://www.airbnb.com/rooms/38526055) |
+| 3 | **Espacioso refugio de 3 dormitorios – Vistas** | Oeste (ladera) | ~2.4 km | **63.2** | 5 | 3 | Sí | 4.84 | $282.068 | [link](https://www.airbnb.com/rooms/1112396000580569933) |
 
-**Mejor casa por puntaje (Casa amoblada para 7 personas con garaje, 94.6/100) + carro propio local ≈ $290.714 por persona** (dentro): baños del grupo, cocina y privacidad total. El trade-off frente al hostal sigue siendo el ambiente social; San Antonio pone la rumba a pie de todos modos.
+**Mejor por puntaje (Apartamento cerca del Estadio, 79.2/100, a ~1.9 km de la rumba) + carro propio local ≈ $286.407 por persona** (dentro): baños del grupo, cocina y privacidad. Igual conviene comparar contra el hostal (Viajero), que gana en ambiente social y queda en plena San Antonio.
 
-Dos que se ven baratas pero **no cumplen** (por eso se miran baños y camas, no solo el precio):
+Cercanas pero con reparos (o las que ya se descartaron), con el porqué verificado por coordenadas:
 
-- **[Apto familiar – ubicación estratégica](https://www.airbnb.com/rooms/1538036648539244464)** (Granada, $104.062 pp · 4 camas · 2 baños) — Barato y céntrico, pero solo 4 camas (bajo el mínimo de 5 para los siete).
-- **[Apto grande y tranquilo](https://www.airbnb.com/rooms/934280562272881551)** (San Fernando, $111.951 pp · 3 camas · 1 baño) — Dice 16 huéspedes pero trae 3 camas y 1 solo baño: ni camas ni baños para el grupo.
-- **[L2 – San Antonio (balcón)](https://www.airbnb.com/rooms/1590016903260349041)** (San Antonio, $220.285 pp · 3 camas · 1 baño) — Buena zona, pero 3 camas, 1 baño y caro: no compensa.
+- **[Casa Bella, bohemia San Antonio](https://www.airbnb.com/rooms/49321247)** (Oeste ~1,0 km, $156.186 pp · 5 camas · 2 baños) — La MEJOR ubicada (~1 km de actividades) pero SIN disponibilidad para la noche del 30.
+- **[Apto familiar – ubicación estratégica](https://www.airbnb.com/rooms/1538036648539244464)** (Oeste ~2,1 km, $104.062 pp · 4 camas · 2 baños) — Bien ubicado, pero solo 4 camas (bajo el mínimo de 5 para los siete).
+- **[Apto tranquilo para compartir](https://www.airbnb.com/rooms/49124373)** (Oeste ~3,6 km, $246.200 pp · 4 camas · 4 baños) — 4 baños (lujo) pero solo 4 camas (<5) y algo retirado.
+- **[Casa para 8 personas](https://www.airbnb.com/rooms/880582897050465656)** (ESTE ~4,7 km, $124.151 pp · 6 camas · 2 baños) — Coordenadas → este de Cali, lejos de la zona de actividades.
+- **[Casa con piscina privada](https://www.airbnb.com/rooms/825481159079037573)** (Centro ~4,2 km, $430.608 pp · 5 camas · 2,5 baños) — Se sale del presupuesto (~$431k pp) y queda retirada.
 
 ## Movilidad: la llegada es de noche
 
@@ -150,7 +148,7 @@ Cada lectura combina un hostal con la movilidad recomendada (carro local (entreg
 | **Económico** | [La Chanca Hostel](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/) | **$289.850** | DENTRO |
 | **Amenidades en meta** | [Hostal Patio del Río](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/) | **$389.750** | DENTRO |
 | **El equilibrio** ★ | [Viajero Hostel & Salsa School](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/) | **$452.282** | FLEX |
-| **Casa entera** | [Casa amoblada para 7 personas con garaje](https://www.airbnb.com/rooms/38526055) | **$290.714** | DENTRO |
+| **Casa entera** | [Apartamento cerca del Estadio](https://www.airbnb.com/rooms/28196917) | **$286.407** | DENTRO |
 
 ## La recomendación
 

@@ -40,15 +40,15 @@ from playwright.async_api import async_playwright
 CHECK_IN = "2026-10-30"   # viernes
 CHECK_OUT = "2026-11-02"  # lunes (3 noches)
 ADULTOS = 7
-# Occidente de Cali, cerca de la zona de actividades (rumba/salsa/gastronomía): El Peñón, Granada,
-# Santa Teresita, San Antonio, Juanambú (Oeste) y San Fernando. Una búsqueda por zona.
+# Noroeste / oeste de Cali, cerca de la zona de actividades (Av. Sexta, Granada, El Peñón, Oeste).
 ZONAS = [
-    "El Peñón, Cali, Valle del Cauca",
     "Granada, Cali, Valle del Cauca",
+    "Santa Mónica, Cali, Valle del Cauca",
+    "Versalles, Cali, Valle del Cauca",
+    "Centenario, Cali, Valle del Cauca",
+    "El Peñón, Cali, Valle del Cauca",
     "Santa Teresita, Cali, Valle del Cauca",
-    "San Antonio, Cali, Valle del Cauca",
-    "Juanambú, Cali, Valle del Cauca",
-    "San Fernando, Cali, Valle del Cauca",
+    "Vipasa, Cali, Valle del Cauca",
 ]
 HEADLESS = True           # ponlo en False la primera vez para VER el navegador
 AQUI = Path(__file__).parent

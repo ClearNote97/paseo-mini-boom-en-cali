@@ -104,7 +104,8 @@ el código (fuente única); los `*.json` del scraper son artefactos intermedios 
 |---|---|---|---|---|
 | `nombre` | texto | Título del anuncio | — | Airbnb |
 | `corto` | texto | Etiqueta corta (para el gráfico de barras) | — | armado |
-| `zona` | texto | Barrio / zona de Cali | ej. `San Antonio`, `Granada` | Airbnb |
+| `zona` | texto | Sector de Cali (clasificado por coordenadas) | `Oeste`, `Noroeste`, `Centro-oeste`, … | coordenadas |
+| `km` | decimal | Distancia aprox. a la zona de actividades (Granada/El Peñón) | `>= 0` (km) | coordenadas |
 | `cap` | entero | Huéspedes que admite | `>= 7` | ficha |
 | `hab` | entero | Habitaciones | `>= 1` | ficha |
 | `camas` | entero | Camas | `>= 5` (los que no cumplen van a `AIRBNB_DESCARTES`) | ficha |
