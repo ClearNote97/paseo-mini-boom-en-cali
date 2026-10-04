@@ -32,8 +32,9 @@ El corazón del proyecto es el *método*, no la respuesta:
 1. **Criterio antes que búsqueda.** Primero se fijaron los pesos de cada criterio (seguridad 30%, amenidades,
    precio, cercanía, parqueadero, ambiente) — *antes* de mirar un solo precio, para no sesgar la decisión
    por la primera opción atractiva.
-2. **Precios reales, no de folleto.** Un navegador automatizado (Playwright) recorrió Hostelworld con las
-   fechas exactas y 7 huéspedes; el transporte se cotizó contra Kayak y agencias locales de Cali.
+2. **Precios reales, no de folleto.** Un navegador automatizado (Playwright) recorrió Hostelworld y Airbnb
+   (casas/aptos enteros) con las fechas exactas y 7 huéspedes; el transporte se cotizó contra Kayak y
+   agencias locales de Cali.
 3. **Puntaje propio y auditable.** Se construyó un puntaje 0–100 (nota 1–5 por criterio × su peso), **distinto**
    del rating externo de las plataformas, con la fórmula a la vista.
 4. **Consolidación por trade-off**, no solo por precio: arquetipos de estadía y escenarios de movilidad.

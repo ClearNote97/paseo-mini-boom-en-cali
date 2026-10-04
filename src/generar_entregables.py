@@ -158,6 +158,46 @@ VEHICULOS_NOTA = ("Todos los precios son por los 3 días, solo el alquiler (sin 
 ZONAS_SEGURAS = ["San Antonio", "Granada", "El Peñón", "Santa Teresita", "Ciudad Jardín"]
 ZONAS_EVITAR = ["Aguablanca (oriente)", "Siloé", "Terrón Colorado (ladera oeste alta)"]
 
+# ─────────────── AIRBNB — casas/aptos enteros (scrapeado, fechas reales) ───────────────
+# Barrido real con Playwright: src/scrapers/explora_airbnb.py (listados) + explora_fichas_airbnb.py
+# (detalle de ficha), para 30 oct–2 nov 2026, 7 adultos, alojamiento ENTERO en zonas seguras.
+# Capacidad / habitaciones / camas / baños salen de la ficha. Aire y piscina se marcan "según
+# anuncio" salvo que el título lo afirme (el barrido no los confirma de forma fiable).
+# El atractivo frente al hostal: en una casa/apto entero NINGÚN baño se comparte con extraños.
+AIRBNB_ENTEROS = [
+    {"nombre": "Casa de 4 Habitaciones – Terraza y Aire/C", "zona": "San Antonio", "cap": 9, "hab": 4,
+     "camas": 5, "banos": 1.5, "total": 550_000, "aire": "Sí (anuncio)", "piscina": "Por confirmar",
+     "cocina": "Sí", "reco": True, "link": "https://www.airbnb.com/rooms/1048602132521468133",
+     "nota": "Aire en el anuncio, terraza y cabe de sobra (9). 1,5 baños, todos del grupo. La más barata que cumple."},
+    {"nombre": "Casa amoblada para 7 personas con garaje", "zona": "San Antonio", "cap": 7, "hab": 3,
+     "camas": 5, "banos": 2.5, "total": 635_000, "aire": "Por confirmar", "piscina": "Por confirmar",
+     "cocina": "Sí", "reco": False, "link": "https://www.airbnb.com/rooms/38526055",
+     "nota": "Exacta para 7 y la que más baños da por persona (2,5). Garaje propio."},
+    {"nombre": "Casa para 8 personas", "zona": "Granada", "cap": 9, "hab": 4, "camas": 6, "banos": 2.0,
+     "total": 869_058, "aire": "Por confirmar", "piscina": "Por confirmar", "cocina": "Sí", "reco": False,
+     "link": "https://www.airbnb.com/rooms/880582897050465656",
+     "nota": "En Granada (zona segura y gastronómica); 6 camas y 2 baños para repartir."},
+    {"nombre": "Casa con piscina privada", "zona": "San Antonio", "cap": 8, "hab": 4, "camas": 5, "banos": 2.5,
+     "total": 3_014_260, "aire": "Por confirmar", "piscina": "Sí (anuncio)", "cocina": "Sí", "reco": False,
+     "link": "https://www.airbnb.com/rooms/825481159079037573",
+     "nota": "Piscina privada y 2,5 baños, pero el precio excede el techo: es la opción de lujo."},
+]
+# Dos que se ven baratas pero NO cumplen — útiles en la charla para explicar por qué se miran
+# los baños y las camas, no solo el precio.
+AIRBNB_DESCARTES = [
+    {"nombre": "Casa Familiar 5 Hab con Terraza", "zona": "San Antonio", "cap": 11, "hab": 5, "camas": 6,
+     "banos": 1.0, "total": 539_297, "link": "https://www.airbnb.com/rooms/1505090686623655075",
+     "motivo": "La más barata del barrido, pero 1 solo baño para 11 personas → justo lo que no queremos."},
+    {"nombre": "Apto El Ingenio 301", "zona": "El Ingenio (sur)", "cap": 7, "hab": 3, "camas": 3,
+     "banos": 2.0, "total": 1_035_000, "link": "https://www.airbnb.com/rooms/47950307",
+     "motivo": "Solo 3 camas (bajo el mínimo de 5) y lejos de la rumba de San Antonio."},
+]
+for _a in AIRBNB_ENTEROS + AIRBNB_DESCARTES:
+    _a["pp"] = _a["total"] // CONTEXTO["personas"]
+AIRBNB_ENTEROS.sort(key=lambda a: a["pp"])
+AIRBNB_RECO = next(a for a in AIRBNB_ENTEROS if a["reco"])
+AIRBNB_EST_ESTIMADO = 300_000  # estimado conservador que la casa entera tenía en la tabla de puntaje (v1)
+
 BASE = "Mini-Boom-en-Cali"
 ARCHIVOS = {
     "md": f"{BASE}_Informe-completo.md",
@@ -180,6 +220,12 @@ def cop(v) -> str:
 
 def estado_pp(total: int) -> str:
     return "DENTRO" if total <= CONTEXTO["meta_max"] else ("FLEX" if total <= CONTEXTO["techo"] else "EXCEDE")
+
+
+def bano_compartido(e: dict) -> str:
+    """Dimensión informativa (no entra al puntaje): ¿se comparte baño con extraños?
+    Casa/apto entero → No (todos los baños son del grupo). Hostal → Depende de la habitación."""
+    return "No" if e["nombre"].startswith("Casa/Apto") else "Depende*"
 
 
 def _slug(t: str) -> str:
@@ -220,13 +266,15 @@ ESTADIA_RANK = sorted(ESTADIA, key=puntaje, reverse=True)
 MEJOR = ESTADIA_RANK[0]
 
 
-def _paquete(nombre, est_nombre, nota=""):
+def _paquete(nombre, est_nombre, nota="", pp_override=None, etiqueta=None, url_override=None):
+    # pp_override / etiqueta / url_override permiten mostrar el precio REAL de una opción (p. ej. la
+    # casa entera de Airbnb) en la lectura, sin tocar el puntaje/ranking (que usa el estimado congelado).
     est = next(e for e in ESTADIA if e["nombre"] == est_nombre)
-    est_pp = _pp_estadia(est)
+    est_pp = pp_override if pp_override is not None else _pp_estadia(est)
     total = est_pp + TRANSPORTE_REF
-    return {"nombre": nombre, "estadia": est_nombre, "estadia_obj": est, "estadia_pp": est_pp,
+    return {"nombre": nombre, "estadia": etiqueta or est_nombre, "estadia_obj": est, "estadia_pp": est_pp,
             "transporte_pp": TRANSPORTE_REF, "total_pp": total, "estado": estado_pp(total),
-            "recomendado": est is MEJOR, "nota": nota, "url": est["url"]}
+            "recomendado": est is MEJOR, "nota": nota, "url": url_override or est["url"]}
 
 
 PAQUETES = [
@@ -237,7 +285,8 @@ PAQUETES = [
     _paquete("El equilibrio", "Viajero Hostel & Salsa School",
              "Seguridad, piscina, aire, bar, rumba a pie y ambiente social. El puntaje más alto."),
     _paquete("Casa entera", "Casa/Apto entero (Airbnb)",
-             "Máxima privacidad y comodidad (piscina, aire, cocina). Dentro del flex."),
+             "Baños del grupo, cocina y privacidad total. Precio real del barrido de Airbnb (ver subsección).",
+             pp_override=AIRBNB_RECO["pp"], etiqueta=AIRBNB_RECO["nombre"], url_override=AIRBNB_RECO["link"]),
 ]
 RECO = next(p for p in PAQUETES if p["recomendado"])
 
@@ -329,16 +378,50 @@ def build_md() -> None:
     A(f"\n> **Fórmula:** puntaje = suma de (peso × nota⁄5). Con el líder, {MEJOR['nombre']}: "
       f"{ejemplo} = **{puntaje(MEJOR):.1f}/100**.\n")
     A("Ordenados por ese puntaje propio. La última columna es para juzgar con ojos propios:\n")
-    A("| # | Hostal | Zona | Puntaje | Calificación huéspedes | Aire | Piscina | Estadía por persona (3 noches) | Ver |")
-    A("|:--:|---|---|:--:|:--:|:--:|:--:|--:|:--:|")
+    A("| # | Hostal | Zona | Puntaje | Calificación huéspedes | Aire | Piscina | ¿Baño compartido? | Estadía por persona (3 noches) | Ver |")
+    A("|:--:|---|---|:--:|:--:|:--:|:--:|:--:|--:|:--:|")
     for i, e in enumerate(ESTADIA_RANK, 1):
         estrella = " ★" if e is MEJOR else ""
         A(f"| {i} | {e['nombre']}{estrella} | {e['zona']} | **{puntaje(e):.1f}** | {e['rating_hw'] or '—'} | "
-          f"{'✔' if e['ac'] else '—'} | {'✔' if e['piscina'] else '—'} | {cop(_pp_estadia(e))} | "
+          f"{'✔' if e['ac'] else '—'} | {'✔' if e['piscina'] else '—'} | {bano_compartido(e)} | {cop(_pp_estadia(e))} | "
           f"[link]({e['url']}) |")
     A("")
     for e in ESTADIA_RANK:
         A(f"- **[{e['nombre']}]({e['url']})** — {e['nota']}")
+    A("\n> **\\* Sobre los baños:** el grupo no quiere compartir baño con extraños. En un hostal eso "
+      "*depende de la habitación* — hay que confirmar al reservar que tenga baño propio (o reservar una "
+      "habitación privada para los siete). La casa o apto entero resuelve el punto de raíz: **ningún baño "
+      "se comparte**. Es una dimensión informativa; **no entra al puntaje** (lo decide el grupo).\n")
+
+    # ── Subsección: Airbnb (casas/aptos enteros) ──
+    A("### Airbnb — casas y aptos enteros: los baños son solo del grupo\n")
+    A("Como la privacidad de los baños pesó en la conversación, se repitió el mismo barrido —con Playwright, "
+      "fechas reales y 7 personas— pero sobre **Airbnb**, filtrando **alojamiento entero** en las zonas "
+      "seguras. La ventaja es directa: en una casa o apartamento completo no se comparte baño con nadie de "
+      "afuera, y encima suele haber cocina y privacidad total.\n")
+    A(f"> **Hallazgo:** en la tabla de puntaje la casa entera había entrado con un estimado conservador "
+      f"({cop(AIRBNB_EST_ESTIMADO)} por persona). El barrido real de Airbnb la dejó **bastante más barata** "
+      f"—desde ~{cop(AIRBNB_RECO['pp'])} por persona las 3 noches—, así que la opción privada es, además, "
+      "de las más económicas.\n")
+    A("| Casa / apto entero | Zona | Cabe | Camas | Baños (del grupo) | Aire | Piscina | Por persona (3n) | Ver |")
+    A("|---|---|:--:|:--:|:--:|:--:|:--:|--:|:--:|")
+    for a in AIRBNB_ENTEROS:
+        estrella = " ★" if a["reco"] else ""
+        banos_txt = f"{a['banos']:g}".replace(".", ",")
+        A(f"| **{a['nombre']}**{estrella} | {a['zona']} | {a['cap']} | {a['camas']} | {banos_txt} | "
+          f"{a['aire']} | {a['piscina']} | {cop(a['pp'])} | [link]({a['link']}) |")
+    A("")
+    _ab_total = AIRBNB_RECO["pp"] + TRANSPORTE_REF
+    A(f"**Casa entera recomendada ({AIRBNB_RECO['nombre']}) + carro propio local ≈ {cop(_ab_total)} por "
+      f"persona** — entra en meta ({estado_pp(_ab_total).lower()}), con baños propios, cocina y privacidad "
+      "total. El trade-off frente al hostal es el ambiente social: la casa no trae bar ni clases de salsa, "
+      "pero San Antonio pone la rumba a pie igual.\n")
+    A("Dos que se ven baratas pero **no cumplen** (por eso se miran baños y camas, no solo el precio):\n")
+    for d in AIRBNB_DESCARTES:
+        banos_txt = f"{d['banos']:g}".replace(".", ",")
+        banos_lbl = "baño" if d["banos"] == 1 else "baños"
+        A(f"- **[{d['nombre']}]({d['link']})** ({d['zona']}, {cop(d['pp'])} pp · {d['camas']} camas · "
+          f"{banos_txt} {banos_lbl}) — {d['motivo']}")
     A("")
 
     A(f"## {SEC['mov_donde']}\n")
@@ -397,7 +480,9 @@ def build_md() -> None:
     A(f"## {SEC['confirmar']}\n")
     A("Las cartas boca arriba:\n")
     A("- **Estadía:** ¿el precio es por persona o por habitación? Se asumió por persona (lo prudente). Y "
-      "confirmar capacidad para siete con camas mínimo cinco al abrir cada ficha.")
+      "confirmar capacidad para siete con camas mínimo cinco al abrir cada ficha. En Airbnb los totales "
+      "son del alojamiento completo (ya divididos entre 7) pero faltan las **tarifas de servicio/limpieza**; "
+      "en hostal, confirmar que la habitación tenga **baño propio** para no compartirlo con extraños.")
     A(f"- **Carro:** pedir cotización por WhatsApp a [Farallones]({FARALLONES_URL}) o "
       f"[WayCarCali]({WAYCAR_URL}) para la **entrega en el aeropuerto coordinando el vuelo de las 8 pm** y el "
       "total exacto de los 3 días. Si en cambio usan el mostrador (Kayak), reservar recogida fuera de horario "
@@ -560,21 +645,64 @@ def build_xlsx() -> None:
 
     # Estadía (datos)
     ws = wb.create_sheet("Estadía (datos)"); ws.sheet_view.showGridLines = False
-    ws.merge_cells("A1:H1"); ws["A1"] = "🏨 Estadía — candidatos scrapeados (Hostelworld, fechas reales)"; ws["A1"].font = f_title
-    head_row(ws, 3, ["Hostal", "Zona", "Calif. huéspedes", "Privada desde/noche", "Aire", "Piscina", "Estadía por persona (3n)", "Ver"])
+    ws.merge_cells("A1:I1"); ws["A1"] = "🏨 Estadía — candidatos scrapeados (Hostelworld, fechas reales)"; ws["A1"].font = f_title
+    head_row(ws, 3, ["Hostal", "Zona", "Calif. huéspedes", "Privada desde/noche", "Aire", "Piscina",
+                     "¿Baño compartido?", "Estadía por persona (3n)", "Ver"])
     r = 4
     for i, e in enumerate(ESTADIA_RANK):
         vals = [e["nombre"], e["zona"], e["rating_hw"] or "—", e["priv_noche"],
-                "Sí" if e["ac"] else "No", "Sí" if e["piscina"] else "No", _pp_estadia(e)]
+                "Sí" if e["ac"] else "No", "Sí" if e["piscina"] else "No", bano_compartido(e), _pp_estadia(e)]
         for j, v in enumerate(vals, 1):
             cell = ws.cell(row=r, column=j, value=v)
             cell.border = border; cell.alignment = center if j != 1 else left
-            if j in (4, 7):
+            if j in (4, 8):
                 cell.number_format = money
             if i % 2 == 0:
                 cell.fill = fill_alt
-        linkcell(ws, r, 8, e["url"]); r += 1
-    for j, w in enumerate([32, 18, 15, 20, 7, 9, 20, 8], 1):
+        linkcell(ws, r, 9, e["url"]); r += 1
+    for j, w in enumerate([32, 18, 15, 20, 7, 9, 16, 20, 8], 1):
+        ws.column_dimensions[get_column_letter(j)].width = w
+    r += 1
+    ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=9)
+    ws.cell(row=r, column=1, value="* El baño en hostal depende de la habitación (confirmar baño privado al "
+            "reservar). En casa/apto entero NINGÚN baño se comparte — ver la hoja «Airbnb (enteros)». "
+            "Dimensión informativa: no entra al puntaje.").font = f_sub
+    ws.cell(row=r, column=1).alignment = left; ws.row_dimensions[r].height = 30
+
+    # Airbnb (casas/aptos enteros) — barrido real
+    ws = wb.create_sheet("Airbnb (enteros)"); ws.sheet_view.showGridLines = False
+    ws.merge_cells("A1:I1")
+    ws["A1"] = "🛏️ Airbnb — casas y aptos enteros (baños del grupo, fechas reales)"; ws["A1"].font = f_title
+    ws.merge_cells("A2:I2")
+    ws["A2"] = (f"Barrido real con Playwright (alojamiento entero, 7 personas). Ningún baño se comparte con "
+                f"extraños. La casa entera había entrado al puntaje con un estimado de {cop(AIRBNB_EST_ESTIMADO)} pp; "
+                f"el barrido real la dejó desde ~{cop(AIRBNB_RECO['pp'])} pp.")
+    ws["A2"].font = f_sub; ws["A2"].alignment = left; ws.row_dimensions[2].height = 42
+    head_row(ws, 4, ["Casa / apto entero", "Zona", "Cabe", "Camas", "Baños", "Aire", "Piscina",
+                     "Por persona (3n)", "Ver"])
+    r = 5
+    for i, a in enumerate(AIRBNB_ENTEROS):
+        vals = [a["nombre"] + (" ★" if a["reco"] else ""), a["zona"], a["cap"], a["camas"], a["banos"],
+                a["aire"], a["piscina"], a["pp"]]
+        for j, v in enumerate(vals, 1):
+            cell = ws.cell(row=r, column=j, value=v)
+            cell.border = border; cell.alignment = center if j != 1 else left
+            if j == 8:
+                cell.number_format = money
+            if a["reco"]:
+                cell.fill = fill_reco
+            elif i % 2 == 0:
+                cell.fill = fill_alt
+        linkcell(ws, r, 9, a["link"]); r += 1
+    r += 1
+    ws.cell(row=r, column=1, value="No cumplen (por qué se miran baños y camas, no solo el precio):").font = f_bold
+    r += 1
+    for d in AIRBNB_DESCARTES:
+        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=9)
+        ws.cell(row=r, column=1, value=f"{d['nombre']} — {d['zona']}, {cop(d['pp'])} pp · {d['camas']} camas · "
+                f"{d['banos']:g} baños → {d['motivo']}").font = f_sub
+        ws.cell(row=r, column=1).alignment = left; r += 1
+    for j, w in enumerate([34, 16, 7, 8, 8, 14, 14, 16, 8], 1):
         ws.column_dimensions[get_column_letter(j)].width = w
 
     # Una hoja por lectura
@@ -752,6 +880,21 @@ def build_pdf() -> None:
         data.append([p["nombre"] + (" ★" if p["recomendado"] else ""), p["estadia"], cop(p["total_pp"]), p["estado"]])
     E.append(KeepTogether([pill("Cuatro lecturas del presupuesto"), Spacer(1, 0.12 * cm),
                            tabla_datos(data, [3.8 * cm, 5.2 * cm, 3.2 * cm, 2.2 * cm], [p["recomendado"] for p in PAQUETES])]))
+    E.append(Spacer(1, 0.22 * cm))
+
+    ab_data = [["Casa / apto entero", "Cabe", "Baños", "Por persona (3n)"]]
+    for a in AIRBNB_ENTEROS:
+        st = cellb if a["reco"] else cell
+        ab_data.append([Paragraph(a["nombre"] + (" ★" if a["reco"] else ""), st), str(a["cap"]),
+                        f"{a['banos']:g}".replace(".", ","), cop(a["pp"])])
+    ab_total = AIRBNB_RECO["pp"] + TRANSPORTE_REF
+    E.append(KeepTogether([
+        pill("Airbnb — casas enteras (baños del grupo)"), Spacer(1, 0.12 * cm),
+        Paragraph("El grupo no quiere compartir baño con extraños: en una casa o apto <b>entero</b> ningún "
+                  "baño se comparte. Barrido real, precio por persona de las 3 noches. La casa entera "
+                  f"recomendada + carro propio local ≈ <b>{cop(ab_total)}</b> por persona (en meta).", small),
+        Spacer(1, 0.1 * cm),
+        tabla_datos(ab_data, [8.6 * cm, 1.8 * cm, 1.8 * cm, 3.0 * cm], [a["reco"] for a in AIRBNB_ENTEROS])]))
     E.append(Spacer(1, 0.22 * cm))
 
     E.append(pill("Para revisar cada opción")); E.append(Spacer(1, 0.12 * cm))
@@ -976,6 +1119,37 @@ def build_pptx() -> None:
             cl.fill.solid()
             cl.fill.fore_color.rgb = (RGBColor.from_string(ACCENT_SOFT) if e is MEJOR
                                       else (C_WHITE if i % 2 else RGBColor.from_string(ALTROW)))
+
+    # ── 5c Airbnb — casas enteras (baños del grupo) ──
+    s = prs.slides.add_slide(blank); fondo(s); header(s, "🛏️", "Airbnb — casas enteras (baños del grupo)")
+    _ab_total = AIRBNB_RECO["pp"] + TRANSPORTE_REF
+    bloque(s, 0.6, 1.2, 12.1, 0.6,
+           [(f"Alojamiento entero: ningún baño se comparte con extraños. Casa entera recomendada + carro "
+             f"local ≈ {cop(_ab_total)} por persona (en meta). Barrido real, 7 personas.", 14, C_INK, False)])
+    _cab_ab = ["Casa / apto entero", "Zona", "Cabe", "Baños", "Por persona (3n)", "Ver"]
+    tabla = s.shapes.add_table(len(AIRBNB_ENTEROS) + 1, 6, Inches(0.5), Inches(1.95), Inches(12.33), Inches(3.6)).table
+    for w, ancho in zip(range(6), [Inches(4.6), Inches(2.0), Inches(1.2), Inches(1.4), Inches(2.33), Inches(0.8)]):
+        tabla.columns[w].width = ancho
+    for j, h in enumerate(_cab_ab):
+        c0 = tabla.cell(0, j); c0.text = h; c0.fill.solid(); c0.fill.fore_color.rgb = C_PRIM
+        rr = c0.text_frame.paragraphs[0].runs[0]; rr.font.bold = True; rr.font.color.rgb = C_WHITE; rr.font.size = Pt(12)
+    for i, a in enumerate(AIRBNB_ENTEROS, 1):
+        banos_txt = f"{a['banos']:g}".replace(".", ",")
+        fila = [a["nombre"] + (" ★" if a["reco"] else ""), a["zona"], str(a["cap"]), banos_txt, cop(a["pp"]), "ver"]
+        for j, val in enumerate(fila):
+            cl = tabla.cell(i, j); cl.text = val
+            para = cl.text_frame.paragraphs[0]; rr = para.runs[0]
+            rr.font.size = Pt(11); rr.font.color.rgb = C_INK
+            if j in (2, 3, 4, 5):
+                para.alignment = PP_ALIGN.CENTER
+            if j == 5:
+                rr.font.color.rgb = C_PRIM_D; rr.font.underline = True; rr.hyperlink.address = a["link"]
+            cl.fill.solid()
+            cl.fill.fore_color.rgb = (RGBColor.from_string(ACCENT_SOFT) if a["reco"]
+                                      else (C_WHITE if i % 2 else RGBColor.from_string(ALTROW)))
+    bloque(s, 0.6, 5.95, 12.1, 0.6,
+           [("No cumplen: «Casa Familiar 5 Hab» (1 baño para 11) y «Apto El Ingenio» (3 camas, lejos de la "
+             "rumba). Por eso se miran baños y camas, no solo el precio.", 12, C_MUTE, False)], align=PP_ALIGN.CENTER)
 
     # ── 6 la llegada es de noche (3 tarjetas) ──
     s = prs.slides.add_slide(blank); fondo(s); header(s, "🌙", "La llegada es de noche")

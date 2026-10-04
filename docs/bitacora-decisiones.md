@@ -15,6 +15,7 @@
 | [D-002](#d-002--recomendación-final-y-entregables) | Recomendación final (estadía + transporte) y paquete de 4 entregables | 2026-09-29 | Aceptada |
 | [D-003](#d-003--escenarios-de-movilidad-y-análisis-de-horarios) | Cuatro escenarios de movilidad + análisis de horarios (el 4.º día) | 2026-09-30 | Aceptada |
 | [D-004](#d-004--planeación-v2-cambio-de-horario-de-ida-llegada-de-noche) | Planeación v2: cambio de horario de ida (llegada de noche) → movilidad reajustada | 2026-10-01 | Aceptada |
+| [D-005](#d-005--subsección-airbnb-casasaptos-enteros-con-datos-reales--la-dimensión-de-baños) | Subsección Airbnb (casas/aptos enteros) con datos reales + la dimensión de baños (informativa) | 2026-10-04 | Aceptada |
 
 ---
 
@@ -84,6 +85,26 @@
 - **Impacto de costo:** la llegada de noche mete el viaje en **3 días de alquiler limpios** (recoger ~9 pm del 30, devolver ~7 pm del 2, bajo 72 h) — un día menos que antes; pero recoger de noche obliga a los mostradores que abren tarde (más caros que las locales), de ahí la palanca.
 - **Pendiente:** WhatsApp a Farallones/WayCarCali (¿entregan en el aeropuerto hacia las 9 pm?) y reservar recogida fuera de horario en Alamo/Localiza como respaldo si el vuelo se retrasa.
 - **Consecuencias:** 4 entregables regenerados a v2 desde la fuente única; estadía intacta; la recomendación global pasa de ~$402k (v1) a ~$432k pp (mostrador nocturno), con la palanca local para volver a ~$400k.
+
+---
+
+## D-005 — Subsección Airbnb (casas/aptos enteros) con datos reales + la dimensión de baños
+
+- **Fecha:** 2026-10-04
+- **Estado:** Aceptada (amplía la búsqueda de estadía de [D-001] y [D-002]; no cambia el puntaje ni el ranking)
+- **Contexto:** Hablando con el grupo antes de la presentación, apareció una prioridad que no estaba explícita: **no compartir baño con extraños**. La idea de cuartos separados era tentadora justo por el tema de los baños. De ahí dos configuraciones aceptables: todos en una habitación privada para los siete, o cada habitación con baño propio — y, por encima de todo, la **casa o apartamento entero**, donde ningún baño se comparte. Se pidió además ser más explícitos con las mejores opciones de apto/casa.
+- **Decisión:** (1) Agregar una **subsección de Airbnb** con opciones concretas de alojamiento entero, con **datos reales** (barrido Playwright), que cumplen los mismos criterios. (2) Incorporar los baños como **dimensión informativa** — columna "¿Baño compartido?" + nota —, **sin** filtro duro nuevo ni re-pesado: el puntaje y el ranking de hostales quedan **intactos** (lo decide el grupo).
+- **Por qué:**
+  - La privacidad de baños es un criterio real del grupo, pero meterlo como filtro/peso habría reordenado todo el puntaje y potencialmente volteado la recomendación a días de la presentación. Como dimensión informativa cumple el objetivo (visibilizar el punto) sin romper la trazabilidad del método ya aceptado.
+  - Airbnb se eligió para el alojamiento entero porque es donde está la oferta de casas/aptos completos; se scrapeó con Playwright (anti-bot más agresivo que Hostelworld — por eso un scraper defensivo con screenshot + volcado de HTML).
+- **Ejecución real:** nuevos scrapers `src/scrapers/explora_airbnb.py` (listados por zona segura, alojamiento entero, fechas reales, 7 adultos) y `explora_fichas_airbnb.py` (detalle de ficha: capacidad, habitaciones, camas, **baños**). Corridos dentro del devcontainer (`docker exec`); hubo que instalar el binario de Chromium y las libs del sistema (`playwright install-deps`). Los `*.json` de salida son artefactos intermedios (no se versionan); la data curada vive en `generar_entregables.py` (fuente única).
+- **Hallazgos (datos reales, 30 oct–2 nov, 7 personas):**
+  - Casa/apto **entero** desde **~$77k–$90k por persona** las 3 noches en San Antonio — **muy por debajo** del estimado conservador de $300k pp que la casa entera tenía en el puntaje (v1). La opción privada resultó, además, de las más económicas.
+  - Flagship: *Casa de 4 Habitaciones – Terraza y Aire/C* (San Antonio, cabe 9, 5 camas, 1,5 baños del grupo, aire en el anuncio) → **$78.571 pp**; con carro propio local ≈ **$278.571 pp (DENTRO)**.
+  - Contraejemplos útiles (por qué se miran baños y camas, no solo precio): *Casa Familiar 5 Hab* ($77k pp pero **1 baño para 11**) y *Apto El Ingenio 301* (3 camas < mínimo 5 y lejos de la rumba).
+- **Alcance en los 4 entregables:** columna "¿Baño compartido?" en la tabla de estadía; nueva **subsección Airbnb** en el informe; hoja **"Airbnb (enteros)"** en el Excel; bloque Airbnb en el PDF; diapositiva nueva en la presentación. La lectura "Casa entera" pasó a mostrar el **precio real** ($278.571 DENTRO) en vez del estimado viejo ($500.000 EXCEDE), sin tocar el puntaje (que es display aparte, con el estimado congelado para no mover el ranking).
+- **Alternativas descartadas:** baño como filtro duro + criterio con peso (re-balanceo a 100) — rechazado por el usuario para no mover el ranking antes de la presentación; investigación manual en vez de scrape — se prefirió el dato real.
+- **Consecuencias:** la casa entera queda como alternativa fuerte y barata que resuelve los baños, sin desplazar la recomendación vigente (Viajero + carro local, por su ambiente social/salsa). Queda abierta la decisión del grupo entre **ambiente social (hostal)** y **privacidad + baños propios + menor costo (casa entera)**. Pendiente al reservar: tarifas de servicio/limpieza de Airbnb y confirmar aire/piscina marcados "según anuncio".
 
 ---
 

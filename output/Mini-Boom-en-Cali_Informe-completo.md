@@ -60,14 +60,14 @@ El **9.6 o 9.8** junto a cada hostal es la calificación de huéspedes de Hostel
 
 Ordenados por ese puntaje propio. La última columna es para juzgar con ojos propios:
 
-| # | Hostal | Zona | Puntaje | Calificación huéspedes | Aire | Piscina | Estadía por persona (3 noches) | Ver |
-|:--:|---|---|:--:|:--:|:--:|:--:|--:|:--:|
-| 1 | Viajero Hostel & Salsa School ★ | San Antonio | **77.6** | 9.6 | ✔ | ✔ | $252.282 | [link](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/) |
-| 2 | La Palmera Hostel | San Antonio | **75.8** | 9.7 | — | ✔ | $150.000 | [link](https://www.hostelworld.com/hostels/p/314482/la-palmera-hostel/) |
-| 3 | Oasis Cali Hostel | Granada | **75.4** | 9.6 | ✔ | — | $150.000 | [link](https://www.hostelworld.com/hostels/p/284050/oasis-cali-hostel/) |
-| 4 | La Chanca Hostel | San Antonio | **74.8** | 9.8 | — | — | $89.850 | [link](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/) |
-| 5 | Hostal Patio del Río | Oeste (Cali) | **72.8** | 9.6 | ✔ | ✔ | $189.750 | [link](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/) |
-| 6 | Casa/Apto entero (Airbnb) | San Antonio (Oeste) | **71.2** | — | ✔ | ✔ | $300.000 | [link](https://www.airbnb.com/s/San-Antonio--Cali--Valle-del-Cauca/homes?checkin=2026-10-30&checkout=2026-11-02&adults=7) |
+| # | Hostal | Zona | Puntaje | Calificación huéspedes | Aire | Piscina | ¿Baño compartido? | Estadía por persona (3 noches) | Ver |
+|:--:|---|---|:--:|:--:|:--:|:--:|:--:|--:|:--:|
+| 1 | Viajero Hostel & Salsa School ★ | San Antonio | **77.6** | 9.6 | ✔ | ✔ | Depende* | $252.282 | [link](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/) |
+| 2 | La Palmera Hostel | San Antonio | **75.8** | 9.7 | — | ✔ | Depende* | $150.000 | [link](https://www.hostelworld.com/hostels/p/314482/la-palmera-hostel/) |
+| 3 | Oasis Cali Hostel | Granada | **75.4** | 9.6 | ✔ | — | Depende* | $150.000 | [link](https://www.hostelworld.com/hostels/p/284050/oasis-cali-hostel/) |
+| 4 | La Chanca Hostel | San Antonio | **74.8** | 9.8 | — | — | Depende* | $89.850 | [link](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/) |
+| 5 | Hostal Patio del Río | Oeste (Cali) | **72.8** | 9.6 | ✔ | ✔ | Depende* | $189.750 | [link](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/) |
+| 6 | Casa/Apto entero (Airbnb) | San Antonio (Oeste) | **71.2** | — | ✔ | ✔ | No | $300.000 | [link](https://www.airbnb.com/s/San-Antonio--Cali--Valle-del-Cauca/homes?checkin=2026-10-30&checkout=2026-11-02&adults=7) |
 
 - **[Viajero Hostel & Salsa School](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/)** — AC, piscina, bar, clases de salsa gratis, desayuno. El más completo en amenidades y ambiente.
 - **[La Palmera Hostel](https://www.hostelworld.com/hostels/p/314482/la-palmera-hostel/)** — Privadas con ventilador (no AC) y balcón con vista. Clases de salsa. Rating 9.7.
@@ -75,6 +75,28 @@ Ordenados por ese puntaje propio. La última columna es para juzgar con ojos pro
 - **[La Chanca Hostel](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/)** — El mejor rating del barrido (9.8) y el más económico. Amenidades básicas con cocina.
 - **[Hostal Patio del Río](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/)** — Piscina y AC. Equilibrio entre amenidades y precio, dentro de la meta.
 - **[Casa/Apto entero (Airbnb)](https://www.airbnb.com/s/San-Antonio--Cali--Valle-del-Cauca/homes?checkin=2026-10-30&checkout=2026-11-02&adults=7)** — Casa entera de 4 habitaciones con piscina, AC y cocina. Máxima privacidad; estimado ~300k por persona (3 noches).
+
+> **\* Sobre los baños:** el grupo no quiere compartir baño con extraños. En un hostal eso *depende de la habitación* — hay que confirmar al reservar que tenga baño propio (o reservar una habitación privada para los siete). La casa o apto entero resuelve el punto de raíz: **ningún baño se comparte**. Es una dimensión informativa; **no entra al puntaje** (lo decide el grupo).
+
+### Airbnb — casas y aptos enteros: los baños son solo del grupo
+
+Como la privacidad de los baños pesó en la conversación, se repitió el mismo barrido —con Playwright, fechas reales y 7 personas— pero sobre **Airbnb**, filtrando **alojamiento entero** en las zonas seguras. La ventaja es directa: en una casa o apartamento completo no se comparte baño con nadie de afuera, y encima suele haber cocina y privacidad total.
+
+> **Hallazgo:** en la tabla de puntaje la casa entera había entrado con un estimado conservador ($300.000 por persona). El barrido real de Airbnb la dejó **bastante más barata** —desde ~$78.571 por persona las 3 noches—, así que la opción privada es, además, de las más económicas.
+
+| Casa / apto entero | Zona | Cabe | Camas | Baños (del grupo) | Aire | Piscina | Por persona (3n) | Ver |
+|---|---|:--:|:--:|:--:|:--:|:--:|--:|:--:|
+| **Casa de 4 Habitaciones – Terraza y Aire/C** ★ | San Antonio | 9 | 5 | 1,5 | Sí (anuncio) | Por confirmar | $78.571 | [link](https://www.airbnb.com/rooms/1048602132521468133) |
+| **Casa amoblada para 7 personas con garaje** | San Antonio | 7 | 5 | 2,5 | Por confirmar | Por confirmar | $90.714 | [link](https://www.airbnb.com/rooms/38526055) |
+| **Casa para 8 personas** | Granada | 9 | 6 | 2 | Por confirmar | Por confirmar | $124.151 | [link](https://www.airbnb.com/rooms/880582897050465656) |
+| **Casa con piscina privada** | San Antonio | 8 | 5 | 2,5 | Por confirmar | Sí (anuncio) | $430.608 | [link](https://www.airbnb.com/rooms/825481159079037573) |
+
+**Casa entera recomendada (Casa de 4 Habitaciones – Terraza y Aire/C) + carro propio local ≈ $278.571 por persona** — entra en meta (dentro), con baños propios, cocina y privacidad total. El trade-off frente al hostal es el ambiente social: la casa no trae bar ni clases de salsa, pero San Antonio pone la rumba a pie igual.
+
+Dos que se ven baratas pero **no cumplen** (por eso se miran baños y camas, no solo el precio):
+
+- **[Casa Familiar 5 Hab con Terraza](https://www.airbnb.com/rooms/1505090686623655075)** (San Antonio, $77.042 pp · 6 camas · 1 baño) — La más barata del barrido, pero 1 solo baño para 11 personas → justo lo que no queremos.
+- **[Apto El Ingenio 301](https://www.airbnb.com/rooms/47950307)** (El Ingenio (sur), $147.857 pp · 3 camas · 2 baños) — Solo 3 camas (bajo el mínimo de 5) y lejos de la rumba de San Antonio.
 
 ## Movilidad: la llegada es de noche
 
@@ -124,7 +146,7 @@ Cada lectura combina un hostal con la movilidad recomendada (carro local (entreg
 | **Económico** | [La Chanca Hostel](https://www.hostelworld.com/hostels/p/329092/la-chanca-hostel/) | **$289.850** | DENTRO |
 | **Amenidades en meta** | [Hostal Patio del Río](https://www.hostelworld.com/hostels/p/323610/hostal-patio-del-rio/) | **$389.750** | DENTRO |
 | **El equilibrio** ★ | [Viajero Hostel & Salsa School](https://www.hostelworld.com/hostels/p/73676/viajero-cali-hostel-and-salsa-school/) | **$452.282** | FLEX |
-| **Casa entera** | [Casa/Apto entero (Airbnb)](https://www.airbnb.com/s/San-Antonio--Cali--Valle-del-Cauca/homes?checkin=2026-10-30&checkout=2026-11-02&adults=7) | **$500.000** | EXCEDE |
+| **Casa entera** | [Casa de 4 Habitaciones – Terraza y Aire/C](https://www.airbnb.com/rooms/1048602132521468133) | **$278.571** | DENTRO |
 
 ## La recomendación
 
@@ -136,7 +158,7 @@ Palancas según la prioridad: el **mostrador del aeropuerto** (Kayak) es algo m�
 
 Las cartas boca arriba:
 
-- **Estadía:** ¿el precio es por persona o por habitación? Se asumió por persona (lo prudente). Y confirmar capacidad para siete con camas mínimo cinco al abrir cada ficha.
+- **Estadía:** ¿el precio es por persona o por habitación? Se asumió por persona (lo prudente). Y confirmar capacidad para siete con camas mínimo cinco al abrir cada ficha. En Airbnb los totales son del alojamiento completo (ya divididos entre 7) pero faltan las **tarifas de servicio/limpieza**; en hostal, confirmar que la habitación tenga **baño propio** para no compartirlo con extraños.
 - **Carro:** pedir cotización por WhatsApp a [Farallones](https://farallonesrentacar.com/listavehiculos/) o [WayCarCali](https://waycarcali.com/) para la **entrega en el aeropuerto coordinando el vuelo de las 8 pm** y el total exacto de los 3 días. Si en cambio usan el mostrador (Kayak), reservar recogida fuera de horario (24 h de aviso) por si el vuelo se retrasa.
 - **El reloj corre:** cuatro semanas y fin de semana de Halloween. Lo bueno se reserva primero.
 

@@ -93,6 +93,39 @@ validado contra el presupuesto. Cada fila es un paquete propuesto._
 
 ---
 
+## `AIRBNB_ENTEROS` — `src/generar_entregables.py` (barrido Airbnb, ver `D-005`)
+
+_Cada fila es **una casa o apartamento entero** de Airbnb candidato para los 7 (3 noches, 30 oct–2 nov 2026),
+recolectado con Playwright (`src/scrapers/explora_airbnb.py` + `explora_fichas_airbnb.py`). Lo distintivo frente a
+`estadia_opciones`: al ser alojamiento **completo**, **ningún baño se comparte con extraños**. La data curada vive en
+el código (fuente única); los `*.json` del scraper son artefactos intermedios no versionados._
+
+| Variable | Tipo | Descripción | Dominio / valores | Fuente |
+|---|---|---|---|---|
+| `nombre` | texto | Título del anuncio | — | Airbnb |
+| `zona` | texto | Barrio / zona de Cali | ej. `San Antonio`, `Granada` | Airbnb |
+| `cap` | entero | Huéspedes que admite | `>= 7` | ficha |
+| `hab` | entero | Habitaciones | `>= 1` | ficha |
+| `camas` | entero | Camas | `>= 5` deseable (ver filtro `D-001`) | ficha |
+| `banos` | decimal | Baños (puede ser `.5` = medio baño); **todos del grupo** | `>= 1` | ficha |
+| `total` | entero | Precio total del periodo (3 noches), alojamiento completo | `>= 0` (COP) | Airbnb |
+| `pp` | entero | `total // 7` — por persona (3 noches) | `>= 0` (COP) | calculado |
+| `aire` | texto | Aire acondicionado | `Sí (anuncio)` / `Por confirmar` | anuncio |
+| `piscina` | texto | Piscina | `Sí (anuncio)` / `Por confirmar` | anuncio |
+| `cocina` | texto | Cocina | `Sí` | anuncio |
+| `reco` | booleano | Flagship recomendado de la subsección | `true` / `false` | armado |
+| `link` | texto | Enlace al anuncio (`/rooms/<id>`) | — | Airbnb |
+| `nota` | texto | Comentario (por qué entra / trade-off) | — | armado |
+
+> **Dimensión de baños (informativa, no puntúa):** en la tabla de estadía se agregó la columna **"¿Baño compartido?"**
+> (`bano_compartido()` en el código): `No` para casa/apto entero, `Depende*` para hostal (confirmar baño privado al
+> reservar). No es filtro ni peso — es información para que el grupo decida. Ver `D-005`.
+
+**`aire` y `piscina` como texto, no booleano:** el barrido no los confirma de forma fiable (el carrusel de anuncios
+similares contamina la detección), así que se marcan `Por confirmar` salvo que el título lo afirme. Honestidad > falso dato.
+
+---
+
 <!-- ─────────────────────────────────────────────────────────────────────────────
 PLANTILLA PARA UN NUEVO DATASET (copia este bloque y quítale el comentario)
 

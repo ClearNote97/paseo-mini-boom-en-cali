@@ -12,6 +12,8 @@ volcados `.txt`) **no** se versionan (ver `.gitignore` local).
 |---|---|
 | `explora_hostelworld.py` | Barre hostales de Cali en Hostelworld con las fechas reales y 7 huéspedes; extrae nombre, precio de habitación privada y rating. Base de los datos de estadía. |
 | `explora_fichas.py` | Abre la ficha de cada candidato top para intentar sacar tipos de habitación y capacidad. |
+| `explora_airbnb.py` | Barre **casas/aptos enteros** en Airbnb (zonas seguras, fechas reales, 7 personas); extrae nombre, precio total del periodo y link. Base de la subsección de Airbnb (ver `D-005`). |
+| `explora_fichas_airbnb.py` | Abre la ficha de las mejores candidatas de Airbnb y saca capacidad, habitaciones, camas y **baños** (la dimensión que al grupo le importa). |
 | `explora_kayak.py` | Lee ofertas de alquiler de 7 puestos en Kayak (aeropuerto de Cali) para las fechas. |
 | `download_flag.py` | Descarga la bandera de Cali (Wikimedia Commons) a `output/assets/`. |
 | `download_cartagena.py` | Descarga la bandera de Cartagena a `output/assets/`. |
