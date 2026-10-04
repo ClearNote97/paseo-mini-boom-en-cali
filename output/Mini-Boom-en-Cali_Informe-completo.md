@@ -86,17 +86,19 @@ El grupo pidió apuntar al **noroeste/oeste de Cali, cerca de la zona de activid
 
 | # | Casa / apto entero | Sector | Dist. actividades | Puntaje | Camas | Baños | Aire | ★ Rating | Por persona (3n) | Ver |
 |:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|:--:|
-| 1 | **Agradable y Hermoso Apartamento (La Flora)** ★ | Norte (La Flora) | ~4.8 km | **72.4** | 7 | 2 | Sí | 5.0 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
-| 2 | **Casa amoblada para 7 personas con garaje** | Centro-oeste | ~3.6 km | **70.8** | 5 | 2,5 | — | 4.97 | $90.714 | [link](https://www.airbnb.com/rooms/38526055) |
-| 3 | **Casa-museo Fundación Cerón (San Antonio)** | Oeste (San Antonio) | ~0.6 km | **65.3** | 6 | 2,5 | — | 4.63 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
-| 4 | **Espacioso refugio de 3 dormitorios – Vistas** | Oeste (ladera) | ~2.4 km | **63.2** | 5 | 3 | Sí | 4.84 | $282.068 | [link](https://www.airbnb.com/rooms/1112396000580569933) |
+| 1 | **Apto Granada / Chipichape (fresco)** | Noroeste | ~1.8 km | **77.2** | 4 | 2,5 | — | 4.75 | $129.771 | [link](https://www.airbnb.com/rooms/1470314362888330685) |
+| 2 | **Agradable y Hermoso Apartamento (La Flora)** ★ | Norte (La Flora) | ~4.8 km | **74.6** | 7 | 2 | Sí | 5.0 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
+| 3 | **Casa-museo Fundación Cerón (San Antonio)** | Oeste (San Antonio) | ~0.6 km | **67.6** | 6 | 2,5 | — | 4.63 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
+| 4 | **Torre Gardes** | Noroeste | ~3.0 km | **66.8** | 4 | 4 | — | 5.0 | $285.714 | [link](https://www.airbnb.com/rooms/1693694879035428775) |
 
-**Mejor por puntaje: Agradable y Hermoso Apartamento (La Flora) (72.4/100)** — gana por sus 7 camas (una por persona), aire y rating 5.0; con carro propio local ≈ $385.894 por persona (dentro). **Pero es la más lejos (~4.8 km).** Si lo que más pesa es estar *encima* de la rumba, la más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (a solo ~0.6 km, puntaje 65.3). La distancia (coordenadas) está en la tabla para que el grupo elija según qué priorice. Y siempre conviene compararlas contra el hostal (Viajero), que gana en ambiente social y queda en plena San Antonio.
+> **Cómo leer la ★:** marca la mejor **con cama para los siete** (camas ≥5), no solo la de mayor puntaje. La #1 por puntaje, *Apto Granada / Chipichape (fresco)* (77.2), es la más barata y céntrica (~1.8 km) **pero trae 4 camas** (cap. 8 con sofá-cama) — hay que confirmar que durmamos bien los 7.
+
+**★ Mejor con cama para todos: Agradable y Hermoso Apartamento (La Flora)** — 7 camas (una por persona), aire y rating 5.0; con carro propio local ≈ $385.894 por persona (dentro). Su pero es la distancia (~4.8 km, al norte). Si lo que más pesa es estar *encima* de la rumba, la más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (~0.6 km, 6 camas). La distancia (coordenadas) está en la tabla para elegir según prioridad; y conviene compararlas contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.
 
 Cercanas pero con reparos (o las que ya se descartaron), con el porqué verificado por coordenadas:
 
-- **[Apto Granada / Chipichape (fresco)](https://www.airbnb.com/rooms/1470314362888330685)** (Noroeste ~1,8 km, $129.771 pp · 4 camas · 2,5 baños) — Muy bien ubicado (noroeste, ~1,8 km) y 2,5 baños, pero solo 4 camas (<5 para los siete).
-- **[Torre Gardes](https://www.airbnb.com/rooms/1693694879035428775)** (Noroeste ~3,0 km, $285.714 pp · 4 camas · 4 baños) — Noroeste, piscina, 4 baños y rating 5,0 — pero 4 camas (<5) y caro.
+- **[Casa amoblada para 7 personas con garaje](https://www.airbnb.com/rooms/38526055)** (Centro-oeste ~3,6 km, $90.714 pp · 5 camas · 2,5 baños) — La descartaste: poco atractiva, aunque era barata (5 camas, garaje).
+- **[Espacioso refugio de 3 dormitorios – Vistas](https://www.airbnb.com/rooms/1112396000580569933)** (Oeste ~2,4 km, $282.068 pp · 5 camas · 3 baños) — La descartaste: las noches no cuadran y es cara (~$282k pp).
 - **[Casa Bella, bohemia San Antonio](https://www.airbnb.com/rooms/49321247)** (Oeste ~1,0 km, $156.186 pp · 5 camas · 2 baños) — Excelente ubicación (~1 km) pero SIN disponibilidad para la noche del 30.
 - **[Apartamento cerca del Estadio](https://www.airbnb.com/rooms/28196917)** (Oeste ~1,9 km, $86.407 pp · 5 camas · 2 baños) — Buena zona (~1,9 km) pero el calendario no permite la salida el 2.
 - **[Casa con piscina privada](https://www.airbnb.com/rooms/825481159079037573)** (Centro ~4,2 km, $430.608 pp · 5 camas · 2,5 baños) — Se sale del presupuesto (~$431k pp) y queda retirada.

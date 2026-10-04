@@ -168,35 +168,35 @@ ZONAS_EVITAR = ["Aguablanca (oriente)", "Siloé", "Terrón Colorado (ladera oest
 # Mismo puntaje 0–100 que los hostales (ver D-005), en un ranking SEPARADO: el precio se normaliza
 # DENTRO del set Airbnb; los hostales quedan intactos.
 AIRBNB_ENTEROS = [
+    {"nombre": "Apto Granada / Chipichape (fresco)", "zona": "Noroeste", "km": 1.8, "cap": 8, "hab": 3,
+     "camas": 4, "banos": 2.5, "total": 908_397, "ac": False, "piscina": False, "cocina": True,
+     "seguridad": 5, "cercania": 5, "parq": 4, "social": 2, "rating": 4.75, "corto": "Apto Granada/Chipichape",
+     "link": "https://www.airbnb.com/rooms/1470314362888330685",
+     "nota": "La más céntrica del noroeste (~1,8 km) y barata, 2,5 baños. OJO: 4 camas (cap. 8) — confirmá sofá-cama para los 7."},
     {"nombre": "Agradable y Hermoso Apartamento (La Flora)", "zona": "Norte (La Flora)", "km": 4.8, "cap": 10,
      "hab": 3, "camas": 7, "banos": 2.0, "total": 1_301_258, "ac": True, "piscina": False, "cocina": True,
      "seguridad": 5, "cercania": 3, "parq": 4, "social": 2, "rating": 5.0, "corto": "Apto La Flora (7 camas)",
      "link": "https://www.airbnb.com/rooms/1192253493415245874",
-     "nota": "7 camas (¡una por persona!), aire y rating 5,0. La más cómoda adentro, pero a ~4,8 km (norte, no céntrica)."},
-    {"nombre": "Casa amoblada para 7 personas con garaje", "zona": "Centro-oeste", "km": 3.6, "cap": 7, "hab": 3,
-     "camas": 5, "banos": 2.5, "total": 635_000, "ac": False, "piscina": False, "cocina": True,
-     "seguridad": 4, "cercania": 4, "parq": 5, "social": 2, "rating": 4.97, "corto": "Casa 7p garaje",
-     "link": "https://www.airbnb.com/rooms/38526055",
-     "nota": "La más barata, 2,5 baños, garaje y rating 4,97, a ~3,6 km. Aire por confirmar."},
+     "nota": "7 camas (¡una por persona!), aire y rating 5,0 — la mejor para dormir a los 7. Pero a ~4,8 km (norte)."},
     {"nombre": "Casa-museo Fundación Cerón (San Antonio)", "zona": "Oeste (San Antonio)", "km": 0.6, "cap": 12,
      "hab": 6, "camas": 6, "banos": 2.5, "total": 1_294_200, "ac": False, "piscina": False, "cocina": True,
      "seguridad": 5, "cercania": 5, "parq": 2, "social": 2, "rating": 4.63, "corto": "Casa-museo S.Antonio",
      "link": "https://www.airbnb.com/rooms/1548961086363759352",
-     "nota": "La MÁS cerca (0,6 km, plena San Antonio), 6 habitaciones. Confirmar que se alquila completa y el aire."},
-    {"nombre": "Espacioso refugio de 3 dormitorios – Vistas", "zona": "Oeste (ladera)", "km": 2.4, "cap": 8,
-     "hab": 3, "camas": 5, "banos": 3.0, "total": 1_974_477, "ac": True, "piscina": False, "cocina": True,
-     "seguridad": 4, "cercania": 5, "parq": 4, "social": 2, "rating": 4.84, "corto": "Refugio Vistas",
-     "link": "https://www.airbnb.com/rooms/1112396000580569933",
-     "nota": "3 baños (el que más), aire y vistas, a ~2,4 km. El más caro (flex). Confirmar que no sea ladera alta."},
+     "nota": "La MÁS cerca (0,6 km, plena San Antonio), 6 habitaciones y 6 camas. Confirmar que se alquila completa y el aire."},
+    {"nombre": "Torre Gardes", "zona": "Noroeste", "km": 3.0, "cap": 8, "hab": 4, "camas": 4, "banos": 4.0,
+     "total": 2_000_000, "ac": False, "piscina": True, "cocina": True,
+     "seguridad": 5, "cercania": 4, "parq": 4, "social": 2, "rating": 5.0, "corto": "Torre Gardes",
+     "link": "https://www.airbnb.com/rooms/1693694879035428775",
+     "nota": "Noroeste (~3 km), piscina, 4 baños y rating 5,0. OJO: 4 camas (confirmá sofá-cama) y de las más caras."},
 ]
-# Cercanas pero con reparos, y las que descartaste — con el porqué (ubicación por coordenadas).
+# Las que descartaste (con tu razón) y las que no cuadran — con el porqué (ubicación por coordenadas).
 AIRBNB_DESCARTES = [
-    {"nombre": "Apto Granada / Chipichape (fresco)", "zona": "Noroeste ~1,8 km", "cap": 8, "camas": 4, "banos": 2.5,
-     "total": 908_397, "link": "https://www.airbnb.com/rooms/1470314362888330685",
-     "motivo": "Muy bien ubicado (noroeste, ~1,8 km) y 2,5 baños, pero solo 4 camas (<5 para los siete)."},
-    {"nombre": "Torre Gardes", "zona": "Noroeste ~3,0 km", "cap": 8, "camas": 4, "banos": 4.0,
-     "total": 2_000_000, "link": "https://www.airbnb.com/rooms/1693694879035428775",
-     "motivo": "Noroeste, piscina, 4 baños y rating 5,0 — pero 4 camas (<5) y caro."},
+    {"nombre": "Casa amoblada para 7 personas con garaje", "zona": "Centro-oeste ~3,6 km", "cap": 7, "camas": 5,
+     "banos": 2.5, "total": 635_000, "link": "https://www.airbnb.com/rooms/38526055",
+     "motivo": "La descartaste: poco atractiva, aunque era barata (5 camas, garaje)."},
+    {"nombre": "Espacioso refugio de 3 dormitorios – Vistas", "zona": "Oeste ~2,4 km", "cap": 8, "camas": 5,
+     "banos": 3.0, "total": 1_974_477, "link": "https://www.airbnb.com/rooms/1112396000580569933",
+     "motivo": "La descartaste: las noches no cuadran y es cara (~$282k pp)."},
     {"nombre": "Casa Bella, bohemia San Antonio", "zona": "Oeste ~1,0 km", "cap": 8, "camas": 5, "banos": 2.0,
      "total": 1_093_305, "link": "https://www.airbnb.com/rooms/49321247",
      "motivo": "Excelente ubicación (~1 km) pero SIN disponibilidad para la noche del 30."},
@@ -235,10 +235,12 @@ def puntaje_ab(a: dict) -> float:
 
 
 AIRBNB_RANK = sorted(AIRBNB_ENTEROS, key=puntaje_ab, reverse=True)
-AIRBNB_MEJOR = AIRBNB_RANK[0]
+# La ★ va a la mejor por puntaje CON cama para los siete (camas>=5); si ninguna, la de mayor puntaje.
+_ab_full = [a for a in AIRBNB_ENTEROS if a["camas"] >= CONTEXTO["personas"] - 2]
+AIRBNB_MEJOR = max(_ab_full, key=puntaje_ab) if _ab_full else AIRBNB_RANK[0]
 for _a in AIRBNB_ENTEROS:
     _a["reco"] = _a is AIRBNB_MEJOR
-AIRBNB_RECO = AIRBNB_MEJOR  # alias: la casa mejor puntuada es la "recomendada" de la subsección
+AIRBNB_RECO = AIRBNB_MEJOR  # alias: la "recomendada" de la subsección (mejor con cama para el grupo)
 
 BASE = "Mini-Boom-en-Cali"
 ARCHIVOS = {
@@ -461,14 +463,18 @@ def build_md() -> None:
           f"{a['camas']} | {banos_txt} | {ame(a['ac'])} | {a['rating']} | {cop(a['pp'])} | [link]({a['link']}) |")
     A("")
     _ab_total = AIRBNB_MEJOR["pp"] + TRANSPORTE_REF
+    _ab_top = AIRBNB_RANK[0]
     _ab_cerca = min(AIRBNB_ENTEROS, key=lambda a: a["km"])
-    A(f"**Mejor por puntaje: {AIRBNB_MEJOR['nombre']} ({puntaje_ab(AIRBNB_MEJOR):.1f}/100)** — gana por sus "
-      f"{AIRBNB_MEJOR['camas']} camas (una por persona), aire y rating {AIRBNB_MEJOR['rating']}; con carro propio "
-      f"local ≈ {cop(_ab_total)} por persona ({estado_pp(_ab_total).lower()}). **Pero es la más lejos "
-      f"(~{AIRBNB_MEJOR['km']} km).** Si lo que más pesa es estar *encima* de la rumba, la más céntrica es "
-      f"**{_ab_cerca['nombre']}** (a solo ~{_ab_cerca['km']} km, puntaje {puntaje_ab(_ab_cerca):.1f}). La "
-      "distancia (coordenadas) está en la tabla para que el grupo elija según qué priorice. Y siempre conviene "
-      "compararlas contra el hostal (Viajero), que gana en ambiente social y queda en plena San Antonio.\n")
+    A("> **Cómo leer la ★:** marca la mejor **con cama para los siete** (camas ≥5), no solo la de mayor puntaje. "
+      f"La #1 por puntaje, *{_ab_top['nombre']}* ({puntaje_ab(_ab_top):.1f}), es la más barata y céntrica "
+      f"(~{_ab_top['km']} km) **pero trae {_ab_top['camas']} camas** (cap. {_ab_top['cap']} con sofá-cama) — hay "
+      "que confirmar que durmamos bien los 7.\n")
+    A(f"**★ Mejor con cama para todos: {AIRBNB_MEJOR['nombre']}** — {AIRBNB_MEJOR['camas']} camas (una por "
+      f"persona), aire y rating {AIRBNB_MEJOR['rating']}; con carro propio local ≈ {cop(_ab_total)} por persona "
+      f"({estado_pp(_ab_total).lower()}). Su pero es la distancia (~{AIRBNB_MEJOR['km']} km, al norte). Si lo que "
+      f"más pesa es estar *encima* de la rumba, la más céntrica es **{_ab_cerca['nombre']}** (~{_ab_cerca['km']} "
+      f"km, {_ab_cerca['camas']} camas). La distancia (coordenadas) está en la tabla para elegir según prioridad; "
+      "y conviene compararlas contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.\n")
     A("Cercanas pero con reparos (o las que ya se descartaron), con el porqué verificado por coordenadas:\n")
     for d in AIRBNB_DESCARTES:
         banos_txt = f"{d['banos']:g}".replace(".", ",")
@@ -1189,11 +1195,13 @@ def build_pptx() -> None:
     _ab_total = AIRBNB_MEJOR["pp"] + TRANSPORTE_REF
     tarjeta(s, 9.05, 1.8, 3.85, 3.9, fill=ACCENT_SOFT)
     bloque(s, 9.35, 2.1, 3.3, 3.4,
-           [(f"★ {AIRBNB_MEJOR['corto']}", 17, C_PRIM_D, True),
-            (f"lidera con {puntaje_ab(AIRBNB_MEJOR):.1f}/100.", 15, C_INK, False), ("", 8, C_INK, False),
-            (f"A ~{AIRBNB_MEJOR['km']} km de la rumba. Con carro local ≈ {cop(_ab_total)} pp.", 13, C_INK, False),
+           [(f"★ {AIRBNB_MEJOR['corto']}", 16, C_PRIM_D, True),
+            (f"La mejor CON cama para los 7 ({AIRBNB_MEJOR['camas']} camas, {puntaje_ab(AIRBNB_MEJOR):.1f}/100).",
+             14, C_INK, False), ("", 8, C_INK, False),
+            (f"A ~{AIRBNB_MEJOR['km']} km. Con carro local ≈ {cop(_ab_total)} pp.", 13, C_INK, False),
             ("", 6, C_INK, False),
-            ("Ubicación verificada por coordenadas. Confirmar disponibilidad del rango 30→2.", 12, C_MUTE, False)],
+            ("La #1 por puntaje es más barata/céntrica pero trae 4 camas. Confirmá disponibilidad 30→2.",
+             11.5, C_MUTE, False)],
            anchor=MSO_ANCHOR.MIDDLE)
 
     # ── 5d Airbnb — comparación (tabla con puntaje + distancia) ──

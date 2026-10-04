@@ -125,6 +125,11 @@
   - **Descartes transparentes** (con coordenadas): Apto Granada/Chipichape y Torre Gardes (noroeste pero 4 camas), Casa Bella (sin dispo el 30), Apto cerca Estadio (sin salida el 2), Casa piscina (fuera de presupuesto).
   - **Gráfico:** eje fijado a **0–100** (`value_axis.minimum/maximum_scale`) para no exagerar diferencias cuando los puntajes están agrupados.
 
+- **Actualización v5 (2026-10-04) — el usuario descartó 2 por calidad/disponibilidad:** *Casa 7p garaje* (fea) y *Refugio Vistas* (noches no disponibles + cara) salieron a `AIRBNB_DESCARTES` con su razón. Se promovieron las dos mejores del noroeste que quedaban: *Apto Granada/Chipichape* (~1,8 km, la más céntrica/barata) y *Torre Gardes* (~3 km, piscina, 4 baños, 5,0★). **Nuevo set de 4** (La Flora, Casa-museo, + las dos nuevas). Dos decisiones de método:
+  - **La ★ ya no es automáticamente la de mayor puntaje**, sino la mejor **con cama para los siete** (`camas >= personas-2 = 5`): `AIRBNB_MEJOR = max(camas>=5, key=puntaje)`. Las dos nuevas traen **4 camas** (capacidad 8 con sofá-cama) y, aunque *Apto Granada/Chipichape* encabeza el puntaje (77.2, por barata y céntrica), la ★ y el paquete "Casa entera" apuntan a **La Flora** (7 camas). Se explica el matiz en informe, PDF y en la tarjeta del gráfico (la barra resaltada no es la más alta — es la práctica para dormir a 7).
+  - **Normalización de precio:** se mantuvo *dentro del set* pero el set tiene 4 (no 2) justo para que la normalización no se distorsione (con 2 precios casi iguales, uno caía a 5 y otro a 1 — artefacto). Lección: el ranking relativo necesita ≥3–4 ítems para que el sub-puntaje de precio sea informativo.
+  - **Inventario:** confirmado agotado para el criterio estricto — en el noroeste/oeste cerca de actividades, con 7 personas y presupuesto, las opciones con camas ≥5 son contadas; las demás (Casa Bella, Apto Estadio) caen por disponibilidad.
+
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────────
