@@ -103,26 +103,37 @@ el código (fuente única); los `*.json` del scraper son artefactos intermedios 
 | Variable | Tipo | Descripción | Dominio / valores | Fuente |
 |---|---|---|---|---|
 | `nombre` | texto | Título del anuncio | — | Airbnb |
+| `corto` | texto | Etiqueta corta (para el gráfico de barras) | — | armado |
 | `zona` | texto | Barrio / zona de Cali | ej. `San Antonio`, `Granada` | Airbnb |
 | `cap` | entero | Huéspedes que admite | `>= 7` | ficha |
 | `hab` | entero | Habitaciones | `>= 1` | ficha |
-| `camas` | entero | Camas | `>= 5` deseable (ver filtro `D-001`) | ficha |
+| `camas` | entero | Camas | `>= 5` (los que no cumplen van a `AIRBNB_DESCARTES`) | ficha |
 | `banos` | decimal | Baños (puede ser `.5` = medio baño); **todos del grupo** | `>= 1` | ficha |
 | `total` | entero | Precio total del periodo (3 noches), alojamiento completo | `>= 0` (COP) | Airbnb |
 | `pp` | entero | `total // 7` — por persona (3 noches) | `>= 0` (COP) | calculado |
-| `aire` | texto | Aire acondicionado | `Sí (anuncio)` / `Por confirmar` | anuncio |
-| `piscina` | texto | Piscina | `Sí (anuncio)` / `Por confirmar` | anuncio |
-| `cocina` | texto | Cocina | `Sí` | anuncio |
-| `reco` | booleano | Flagship recomendado de la subsección | `true` / `false` | armado |
+| `ac` | booleano | Aire acondicionado (según el anuncio) | `true` / `false` | ficha |
+| `piscina` | booleano | Piscina (según el anuncio) | `true` / `false` | ficha |
+| `cocina` | booleano | Cocina | `true` (alojamiento entero) | ficha |
+| `seguridad` | entero | Señal de seguridad del barrio (1–5) | `1`–`5` | zona + contexto |
+| `cercania` | entero | Cercanía a la zona de actividades (1–5) | `1`–`5` | zona |
+| `parq` | entero | Parqueadero/garaje (1–5) | `1`–`5` | ficha |
+| `social` | entero | Ambiente social (1–5; una casa entera es baja por diseño) | `1`–`5` | armado |
+| `rating` | decimal | Calificación de Airbnb | `0`–`5` | Airbnb |
+| `reco` | booleano | La mejor por puntaje (★); se calcula, no se fija a mano | `true` / `false` | calculado |
 | `link` | texto | Enlace al anuncio (`/rooms/<id>`) | — | Airbnb |
 | `nota` | texto | Comentario (por qué entra / trade-off) | — | armado |
 
-> **Dimensión de baños (informativa, no puntúa):** en la tabla de estadía se agregó la columna **"¿Baño compartido?"**
-> (`bano_compartido()` en el código): `No` para casa/apto entero, `Depende*` para hostal (confirmar baño privado al
-> reservar). No es filtro ni peso — es información para que el grupo decida. Ver `D-005`.
+> **Mismo puntaje que los hostales, ranking SEPARADO (ver `D-005` v2):** `puntaje_ab()` aplica los mismos pesos
+> (`PESOS_ESTADIA`: seguridad 30 · amenidades 20 · precio 20 · cercanía 12 · parqueadero 10 · social 8), con el
+> **precio normalizado dentro del set Airbnb** (`_sub_precio_ab`). No se mezcla con el ranking de hostales (que queda
+> intacto). `AIRBNB_RANK` ordena por puntaje; `AIRBNB_MEJOR` es el primero.
 
-**`aire` y `piscina` como texto, no booleano:** el barrido no los confirma de forma fiable (el carrusel de anuncios
-similares contamina la detección), así que se marcan `Por confirmar` salvo que el título lo afirme. Honestidad > falso dato.
+> **Dimensión de baños (informativa, no puntúa):** en la tabla de estadía está la columna **"¿Baño compartido?"**
+> (`bano_compartido()`): `No` para casa/apto entero, `Depende*` para hostal. No es filtro ni peso — informa al grupo.
+
+**Amenidades "según el anuncio":** `ac` y `piscina` salen de la sección de amenidades de la ficha (tras recortar el
+carrusel de "similares" que contaminaba la detección). Se muestran como "Sí/—" con la advertencia de confirmar al
+reservar. Honestidad > falso dato.
 
 ---
 

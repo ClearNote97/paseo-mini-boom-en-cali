@@ -40,11 +40,15 @@ from playwright.async_api import async_playwright
 CHECK_IN = "2026-10-30"   # viernes
 CHECK_OUT = "2026-11-02"  # lunes (3 noches)
 ADULTOS = 7
-# Zonas seguras priorizadas (una búsqueda por zona para no depender del ranking global).
+# Occidente de Cali, cerca de la zona de actividades (rumba/salsa/gastronomía): El Peñón, Granada,
+# Santa Teresita, San Antonio, Juanambú (Oeste) y San Fernando. Una búsqueda por zona.
 ZONAS = [
-    "San Antonio, Cali, Valle del Cauca",
-    "Granada, Cali, Valle del Cauca",
     "El Peñón, Cali, Valle del Cauca",
+    "Granada, Cali, Valle del Cauca",
+    "Santa Teresita, Cali, Valle del Cauca",
+    "San Antonio, Cali, Valle del Cauca",
+    "Juanambú, Cali, Valle del Cauca",
+    "San Fernando, Cali, Valle del Cauca",
 ]
 HEADLESS = True           # ponlo en False la primera vez para VER el navegador
 AQUI = Path(__file__).parent
@@ -124,6 +128,12 @@ async def barrer_zona(contexto, zona: str) -> list[dict]:
         print("  ⚠ no apareció contenedor de tarjetas en 20s (revisa screenshot/body)")
     await pagina.wait_for_timeout(4_000)
 
+    # Scroll para que Airbnb cargue (lazy) todas las tarjetas de la página, no solo las primeras.
+    for _ in range(6):
+        await pagina.mouse.wheel(0, 4_000)
+        await pagina.wait_for_timeout(1_200)
+    await pagina.wait_for_timeout(1_500)
+
     titulo = await pagina.title()
     print(f"  título: {titulo!r}")
 
@@ -146,7 +156,7 @@ async def barrer_zona(contexto, zona: str) -> list[dict]:
     print(f"  → {n} tarjetas candidatas")
 
     resultados: list[dict] = []
-    for i in range(min(n, 20)):
+    for i in range(min(n, 30)):
         t = tarjetas.nth(i)
         nombre = (
             await _texto(t, "[data-testid='listing-card-title']")
@@ -159,15 +169,23 @@ async def barrer_zona(contexto, zona: str) -> list[dict]:
         if bloque:
             m_total = re.search(r"([\d.,]{4,})\s*(COP\s*)?total", bloque, re.I)
             total = _primer_monto_cop(m_total.group(0)) if m_total else _primer_monto_cop(bloque)
+        # Rating: Airbnb lo pone como "4,95 (123)" en el texto de la tarjeta.
+        rating, resenas = None, None
+        card_txt = await _texto(t, "*")
+        if card_txt:
+            m_r = re.search(r"\b([45],\d{1,2})\s*\((\d+)\)", card_txt)
+            if m_r:
+                rating = float(m_r.group(1).replace(",", "."))
+                resenas = int(m_r.group(2))
         href = await _attr(t, "a[href*='/rooms/']", "href")
         link = f"https://www.airbnb.com{href.split('?')[0]}" if href else None
         subt = await _texto(t, "[data-testid='listing-card-subtitle']")
         if nombre:
             resultados.append(
                 {"zona": zona.split(",")[0], "nombre": nombre, "total_periodo": total,
-                 "subtitulo": subt, "link": link}
+                 "subtitulo": subt, "rating": rating, "resenas": resenas, "link": link}
             )
-            print(f"    • {nombre[:46]:<46} | total: {total or '?':>12} | {subt or ''}")
+            print(f"    • {nombre[:38]:<38} | {total or '?':>9} | ★{rating or '?'} ({resenas or '?'}) | {subt or ''}")
 
     await pagina.close()
     return resultados
