@@ -78,27 +78,27 @@ Ordenados por ese puntaje propio. La última columna es para juzgar con ojos pro
 
 > **\* Sobre los baños:** el grupo no quiere compartir baño con extraños. En un hostal eso *depende de la habitación* — hay que confirmar al reservar que tenga baño propio (o reservar una habitación privada para los siete). La casa o apto entero resuelve el punto de raíz: **ningún baño se comparte**. Es una dimensión informativa; **no entra al puntaje** (lo decide el grupo).
 
-### Airbnb — casas y aptos enteros en el noroeste/oeste (ubicación verificada por coordenadas)
+### Airbnb — alojamientos considerados en el noroeste/oeste (todos medidos con el puntaje)
 
-El grupo pidió apuntar al **noroeste/oeste de Cali, cerca de la zona de actividades**, en casa o apartamento **entero** (ningún baño se comparte). Para no fiarse del título —que engaña: varias que «parecían» del oeste estaban en el este o el sur—, **se verificó la ubicación por las coordenadas de cada ficha** y se midió la distancia a la zona de actividades (Granada / El Peñón). Se les aplicó **el mismo puntaje 0–100** que a los hostales (seguridad 30% · amenidades 20% · precio 20% · cercanía 12% · parqueadero 10% · social 8%), en un **ranking separado** (precio normalizado entre casas).
+Acá entran **todas las opciones de Airbnb que se pusieron sobre la mesa** (las que encontró el grupo y las del barrido), en el noroeste/oeste cerca de la zona de actividades, **con la disponibilidad del rango 30 oct → 2 nov verificada en el calendario real de Airbnb**. Cada una está **marcada por tipo** (entero / apartahotel / hotel / habitación compartida) y por si el **baño se comparte con extraños**, y **todas pasan por el mismo puntaje 0–100** que los hostales (seguridad 30% · amenidades 20% · precio 20% · cercanía 12% · parqueadero 10% · social 8%), con la ubicación verificada por coordenadas.
 
-> **Realidad del inventario:** casas/aptos enteros para 7, en el oeste core, disponibles y en presupuesto, hay **pocos**. Estos son los que cumplen de verdad. *Ojo: la disponibilidad para el rango completo (**30 oct → 2 nov**) y las amenidades (aire/piscina) hay que confirmarlas en el link de cada una — Airbnb no las expone de forma fiable al barrer.*
+> **Importante:** apartahotel y hotel son **unidad privada** (baño propio, no se comparte con extraños); la **habitación compartida** sí comparte baños — por eso, aunque se mide, choca con el requisito del grupo. Camas/baños «—» = dato por unidad (confirmar al reservar). El aire también conviene confirmarlo.
 
-| # | Casa / apto entero | Sector | Dist. | Puntaje | Camas | Baños | Aire | ★ | Total (3n) | Por persona | Ver |
+| # | Alojamiento | Tipo | ¿Baño comp.? | Dist. | Puntaje | Camas | Baños | ★ | Total (3n) | Por persona | Ver |
 |:--:|---|---|:--:|:--:|:--:|:--:|:--:|:--:|--:|--:|:--:|
-| 1 | **Vivienda entera (La Flora)** ★ | Norte (La Flora) | ~4.8 km | **80.1** | 7 | 2 | Sí | 5.0 | $1.301.262 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
-| 2 | **Casa-museo Fundación Cerón (San Antonio)** | Oeste (San Antonio) | ~0.6 km | **73.2** | 6 | 2,5 | — | 4.63 | $1.294.200 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
-| 3 | **Apartamento entero con servicios (tu hallazgo)** | Oeste | ~3.6 km | **66.8** | 4 | 4 | Sí | 4.87 | $1.723.404 | $246.200 | [link](https://www.airbnb.com/rooms/49124373) |
+| 1 | **Vivienda entera (La Flora)** ★ | Entero | No | ~4.8 km | **80.1** | 7 | 2 | 5.0 | $1.301.262 | $185.894 | [link](https://www.airbnb.com/rooms/1192253493415245874) |
+| 2 | **Lofthouse 14 (apartahotel)** | Apartahotel | No (unidad) | ~2.0 km | **77.9** | — | — | 4.92 | $1.489.745 | $212.820 | [link](https://www.airbnb.com/rooms/1556929420516931269) |
+| 3 | **Habitación en hotel** | Hotel | No (unidad) | ~2.1 km | **77.9** | — | — | — | $1.489.745 | $212.820 | [link](https://www.airbnb.com/rooms/1727019164229496188) |
+| 4 | **Habitación compartida (casa de huéspedes)** | Hab. compartida | Sí (extraños) | ~3.1 km | **75.0** | 9 | 6 | 4.67 | $1.440.622 | $205.803 | [link](https://www.airbnb.com/rooms/1277005393867902776) |
+| 5 | **Casa-museo Fundación Cerón (San Antonio)** | Entero | No | ~0.6 km | **73.2** | 6 | 2,5 | 4.63 | $1.294.200 | $184.885 | [link](https://www.airbnb.com/rooms/1548961086363759352) |
+| 6 | **Apartamento entero con servicios** | Entero | No | ~3.6 km | **66.8** | 4 | 4 | 4.87 | $1.723.404 | $246.200 | [link](https://www.airbnb.com/rooms/49124373) |
 
-> **Disponibilidad verificada:** las tres tienen el rango **30 oct → 2 nov libre** (se leyó el calendario real de Airbnb) y son **alojamientos enteros** (ningún baño se comparte con extraños). La ★ marca la mejor **con cama para los siete** (camas ≥5).
+> **Disponibilidad verificada:** las seis tienen el rango **30 oct → 2 nov libre** (se leyó el calendario real de Airbnb). La ★ marca la mejor **casa entera con cama para los siete** (camas ≥5) — no un hotel ni una habitación compartida.
 
-**★ Mejor con cama para todos: Vivienda entera (La Flora)** (80.1/100) — 7 camas (una por persona), aire y rating 5.0; total $1.301.262 → $185.894 por persona, y con carro propio local ≈ $385.894 pp (dentro). Su único pero es la distancia (~4.8 km, al norte); si lo que más pesa es estar *encima* de la rumba, la más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (~0.6 km, 6 camas). Conviene compararlas contra el hostal (Viajero), que gana en ambiente social en plena San Antonio.
+**★ Mejor casa entera para los 7: Vivienda entera (La Flora)** (80.1/100) — 7 camas (una por persona), aire y rating 5.0; total $1.301.262 → $185.894 por persona, y con carro propio local ≈ $385.894 pp (dentro). Su único pero es la distancia (~4.8 km, al norte); la casa entera más céntrica es **Casa-museo Fundación Cerón (San Antonio)** (~0.6 km, 6 camas). Los apartahoteles/hotel puntúan alto por ser céntricos y con aire, pero son formato hotel; conviene compararlo todo contra el hostal (Viajero), que gana en ambiente social.
 
-**Marcadas donde van** — tipo de propiedad y disponibilidad verificados (no son casa entera, o no tienen el rango 30→2):
+**Fuera por disponibilidad** — el calendario NO tiene el rango 30→2 (verificado):
 
-- **[Hab. compartida en casa de huéspedes](https://www.airbnb.com/rooms/1277005393867902776)** (Oeste ~3,1 km, total $1.440.622 → $205.803 pp · 9 camas · 6 baños) — Es una HABITACIÓN COMPARTIDA con 6 baños COMPARTIDOS → va contra lo de no compartir baño con extraños.
-- **[Lofthouse 14 (apartahotel)](https://www.airbnb.com/rooms/1556929420516931269)** (Oeste ~2,0 km, total $1.489.745 → $212.820 pp) — Es un APARTAHOTEL (habitación en hotel), no una casa entera. Privado y con aire, pero formato hotel.
-- **[Habitación en hotel](https://www.airbnb.com/rooms/1727019164229496188)** (Oeste ~2,1 km, total $1.489.745 → $212.820 pp) — Es un HOTEL (habitación), no una casa entera.
 - **[Apto Granada / Chipichape](https://www.airbnb.com/rooms/1470314362888330685)** (Noroeste ~1,8 km, total $908.397 → $129.771 pp · 4 camas · 2,5 baños) — Lindo y céntrico, pero el calendario NO tiene el rango 30→2 (verificado) — y no tiene aire.
 - **[Torre Gardes](https://www.airbnb.com/rooms/1693694879035428775)** (Noroeste ~3,0 km, total $2.000.000 → $285.714 pp · 4 camas · 4 baños) — Piscina y 4 baños, pero el calendario NO tiene las fechas (verificado).
 

@@ -137,6 +137,8 @@
   - **Set final = 3 casas ENTERAS con rango 30→2 verificado:** La Flora (7 camas, aire, 5,0, ~4,8 km, **80.1** ★), Casa-museo (6 camas, ~0,6 km la más céntrica, 73.2), Apto entero con servicios (hallazgo del usuario; 4 camas, 4 baños, aire, ~3,6 km, 66.8). Descartes marcados por tipo/disponibilidad (apartahotel, hotel, habitación compartida, sin fechas).
   - **Pedido del usuario atendido:** se agregó la columna **Total (3 noches)** junto a la de por-persona en los 4 entregables.
 
+- **Actualización v7 (2026-10-04) — integrar TODAS las opciones del usuario (no filtrarlas):** el usuario aclaró que "intégralas y márcalas donde van" significaba **medirlas con el algoritmo, no mandarlas a descartes**. Corregido: el cuadro de Airbnb ahora incluye **las 6 opciones** (las 4 del usuario + 2 casas enteras verificadas), **todas puntuadas**, con dos columnas nuevas: **Tipo** (entero / apartahotel / hotel / hab. compartida) y **¿Baño comp.?**. Así la habitación compartida queda marcada "Sí (extraños)" y se ve por qué choca con el requisito, pero igual se mide. La ★ se restringe a la mejor **casa entera** con camas ≥5 (La Flora, 80.1) — no un hotel. `camas`/`banos`/`rating` pueden ser None (hoteles) → se muestran "—"; helper `dash()`. Descartes quedan solo para las que NO tienen el rango 30→2. Lección: "marcar donde va" ≠ "excluir"; el usuario quería la comparación completa con etiquetas, no un filtro.
+
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────────
